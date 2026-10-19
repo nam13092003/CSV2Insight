@@ -61,25 +61,6 @@ python insight.py data.csv --context "Dữ liệu bán hàng 2024"    # bối c�
 python insight.py data.csv --lang en --top 15 --out bao_cao/    # tiếng Anh, 15 insight, thư mục output khác
 ```
 
-## Bật tóm tắt bằng LLM (tuỳ chọn)
-
-Không có LLM chương trình vẫn chạy đầy đủ (dùng tóm tắt tự động). Muốn LLM viết tóm tắt + khuyến nghị:
-
-1. Lấy API key tại [openrouter.ai/keys](https://openrouter.ai/keys).
-2. Copy file mẫu rồi dán key của bạn vào:
-   ```bash
-   cp openrouter_key.example.txt openrouter_key.txt      # Windows: copy openrouter_key.example.txt openrouter_key.txt
-   ```
-   (hoặc đặt biến môi trường `OPENROUTER_API_KEY`). File `openrouter_key.txt` đã nằm trong `.gitignore` nên **không bị đẩy lên GitHub**.
-3. Chạy bỏ `--no-llm`:
-   ```bash
-   python insight.py examples/sales_synthetic.csv
-   ```
-   Terminal in ra `[llm] tóm tắt viết bởi <model>` nghĩa là LLM đã chạy.
-
-Chỉ cho phép model **≤ 8B tham số**. Mặc định thử lần lượt: `qwen/qwen3-vl-8b-instruct` → `meta-llama/llama-3.1-8b-instruct`
-→ `mistralai/ministral-8b-2512` → `ibm-granite/granite-4.2-8b` → `qwen/qwen-2.5-7b-instruct` → `google/gemma-3-4b-it`.
-Chọn model khác bằng `--model <id>` (lặp lại để có dự phòng). Model lớn hơn 8B sẽ bị chặn.
 
 ## Cách hoạt động
 
@@ -101,36 +82,3 @@ CSV → Nhận diện cột → Khai phá insight → Loại quan hệ hiển nh
 4. **Xếp hạng**: trọng số loại × độ lớn hiệu ứng × phạm vi ảnh hưởng, có đa dạng hoá top‑k.
 5. **LLM (tuỳ chọn)** viết headline, ý chính, khuyến nghị, lưu ý. Mọi con số LLM viết ra được đối chiếu với kết quả thống kê:
    sai → bắt viết lại → vẫn sai thì xoá câu đó. Lỗi mạng/model → model dự phòng → tóm tắt tự động.
-
-## Kiểm thử
-
-```bash
-python tests/evaluate.py
-```
-
-| Bài kiểm tra | Kết quả |
-|---|---|
-| Dữ liệu bán hàng tổng hợp, 13 insight cài sẵn | 13/13 |
-| Dữ liệu nhân sự độc lập (không dùng để tinh chỉnh), 9 insight cài sẵn | 9/9 |
-| 5 bảng nhiễu thuần (không có quan hệ nào) | 0 insight sai |
-
-`tests/mock_openrouter.py` là máy chủ giả lập OpenRouter để thử lớp LLM offline:
-chạy `python tests/mock_openrouter.py 8765`, rồi `python insight.py ... --base-url http://127.0.0.1:8765`.
-
-## Cấu trúc
-
-```
-insight.py               # chương trình chính (CLI)
-tableinsight/
-  profile.py             # đọc CSV, nhận diện vai trò cột
-  stats.py               # kiểm định thống kê (chỉ dùng numpy)
-  miners.py              # các bộ tìm insight
-  rank.py                # chấm điểm, khử trùng, đa dạng hoá
-  llm.py                 # OpenRouter (≤8B), kiểm tra số liệu chống bịa
-  render.py              # xuất HTML (biểu đồ SVG) / Markdown
-examples/                # dữ liệu mẫu (+ đáp án insight cài sẵn)
-sample_output/           # báo cáo mẫu đã tạo sẵn
-tests/                   # bộ đánh giá, sinh dữ liệu, giả lập API
-```
-
-**Giới hạn:** insight là liên hệ thống kê, không phải nhân quả. Phân tích theo thời gian cần ≥ 8 kỳ; mùa vụ theo tháng cần ≥ 2 năm dữ liệu.
