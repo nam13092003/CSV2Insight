@@ -1,0 +1,1780 @@
+{
+ "dataset": {
+  "source": "examples/sales_synthetic.csv",
+  "rows": 8050,
+  "columns": 14,
+  "analyzed_rows": 8050,
+  "sampled": false,
+  "target": "returned"
+ },
+ "columns": [
+  {
+   "column": "order_id",
+   "role": "id",
+   "missing_pct": 0.0,
+   "n_unique": 8000
+  },
+  {
+   "column": "order_date",
+   "role": "datetime",
+   "missing_pct": 0.0,
+   "n_unique": 731,
+   "min": "2023-01-01",
+   "max": "2024-12-31"
+  },
+  {
+   "column": "region",
+   "role": "dimension",
+   "missing_pct": 0.0,
+   "n_unique": 5,
+   "top_values": {
+    "West": 3251,
+    "North": 1431,
+    "South": 1343,
+    "East": 1109,
+    "Central": 916
+   }
+  },
+  {
+   "column": "channel",
+   "role": "dimension",
+   "missing_pct": 0.0,
+   "n_unique": 3,
+   "top_values": {
+    "Online": 3953,
+    "Store": 2876,
+    "Partner": 1221
+   }
+  },
+  {
+   "column": "category",
+   "role": "dimension",
+   "missing_pct": 0.0,
+   "n_unique": 4,
+   "top_values": {
+    "Electronics": 2381,
+    "Furniture": 2062,
+    "Office": 1987,
+    "Clothing": 1620
+   }
+  },
+  {
+   "column": "sales_rep",
+   "role": "dimension",
+   "missing_pct": 0.0,
+   "n_unique": 30,
+   "top_values": {
+    "Rep_01": 1127,
+    "Rep_00": 1077,
+    "Rep_02": 1041,
+    "Rep_28": 209,
+    "Rep_13": 206
+   }
+  },
+  {
+   "column": "unit_price",
+   "role": "measure",
+   "missing_pct": 0.0,
+   "n_unique": 7036,
+   "agg": "mean",
+   "min": 13.27,
+   "max": 1357.32,
+   "mean": 246.29172795031056,
+   "median": 216.235
+  },
+  {
+   "column": "quantity",
+   "role": "measure",
+   "missing_pct": 0.0,
+   "n_unique": 28,
+   "agg": "sum",
+   "min": 1.0,
+   "max": 288.0,
+   "mean": 4.300993788819876,
+   "median": 3.0
+  },
+  {
+   "column": "discount",
+   "role": "measure",
+   "missing_pct": 0.0,
+   "n_unique": 6,
+   "agg": "mean",
+   "min": 0.0,
+   "max": 0.3,
+   "mean": 0.09363975155279503,
+   "median": 0.1
+  },
+  {
+   "column": "revenue",
+   "role": "measure",
+   "missing_pct": 0.0,
+   "n_unique": 7784,
+   "agg": "sum",
+   "min": 14.79,
+   "max": 144192.37,
+   "mean": 1121.7799279503106,
+   "median": 516.2950000000001
+  },
+  {
+   "column": "customer_age",
+   "role": "measure",
+   "missing_pct": 0.14968944099378878,
+   "n_unique": 59,
+   "agg": "mean",
+   "min": 18.0,
+   "max": 80.0,
+   "mean": 38.222059897735576,
+   "median": 38.0
+  },
+  {
+   "column": "satisfaction",
+   "role": "measure",
+   "also_dimension": true,
+   "ordinal": true,
+   "missing_pct": 0.0,
+   "n_unique": 5,
+   "agg": "mean",
+   "min": 1.0,
+   "max": 5.0,
+   "mean": 3.89888198757764,
+   "median": 4.0
+  },
+  {
+   "column": "returned",
+   "role": "binary",
+   "missing_pct": 0.0,
+   "n_unique": 2,
+   "positive": "1",
+   "agg": "mean",
+   "top_values": {
+    "0": 7055,
+    "1": 995
+   }
+  },
+  {
+   "column": "country",
+   "role": "constant",
+   "missing_pct": 0.0,
+   "n_unique": 1
+  }
+ ],
+ "top_insights": [
+  "I01",
+  "I04",
+  "I06",
+  "I07",
+  "I02",
+  "I03",
+  "I05",
+  "I16",
+  "I09",
+  "I08"
+ ],
+ "insights": [
+  {
+   "type": "group_diff",
+   "columns": [
+    "category",
+    "unit_price"
+   ],
+   "strength": 0.858292430753834,
+   "impact": 1.0,
+   "p": 0.0,
+   "facts": {
+    "dimension": "category",
+    "measure": "unit_price",
+    "highest_group": "Electronics",
+    "highest_value": "475.8",
+    "lowest_group": "Office",
+    "lowest_value": "42.40",
+    "overall": "246.3",
+    "eta_squared": "0.737",
+    "ratio": "11.2"
+   },
+   "text": {
+    "vi": "`unit_price` trung bình khác biệt rõ theo `category`: cao nhất ở `Electronics` (475.8), thấp nhất ở `Office` (42.40) (gấp 11.2 lần); trung bình chung 246.3.",
+    "en": "Average `unit_price` varies by `category`: highest for `Electronics` (475.8), lowest for `Office` (42.40) (11.2x); overall 246.3."
+   },
+   "chart": {
+    "kind": "bar",
+    "labels": [
+     "Electronics",
+     "Furniture",
+     "Office",
+     "Clothing"
+    ],
+    "values": [
+     475.78427551448976,
+     321.50145489815714,
+     42.398424760946156,
+     63.348382716049386
+    ],
+    "unit": "",
+    "highlight": [
+     "Electronics",
+     "Office"
+    ]
+   },
+   "score": 0.7295,
+   "theme": "segment",
+   "id": "I01"
+  },
+  {
+   "type": "correlation",
+   "columns": [
+    "unit_price",
+    "revenue"
+   ],
+   "strength": 0.8353032421661003,
+   "impact": 1.0,
+   "p": 0.0,
+   "facts": {
+    "rho": "0.84",
+    "pearson": "0.32",
+    "high_group_mean": "2,378",
+    "low_group_mean": "180.4",
+    "high_threshold": "≥ 396.5",
+    "low_threshold": "≤ 50.10"
+   },
+   "text": {
+    "vi": "`unit_price` và `revenue` tương quan thuận rất mạnh (Spearman ρ = 0.84): khi `unit_price` ≥ 396.5, `revenue` trung bình 2,378, so với 180.4 khi `unit_price` ≤ 50.10.",
+    "en": "`unit_price` and `revenue` have a very strong positive correlation (Spearman ρ = 0.84): when `unit_price` ≥ 396.5, `revenue` averages 2,378 vs. 180.4 when `unit_price` ≤ 50.10."
+   },
+   "chart": {
+    "kind": "scatter",
+    "x": "unit_price",
+    "y": "revenue"
+   },
+   "score": 0.6682,
+   "theme": "relation",
+   "id": "I02"
+  },
+  {
+   "type": "segment_change",
+   "columns": [
+    "order_date",
+    "category",
+    "revenue"
+   ],
+   "strength": 0.8495906977091127,
+   "impact": 0.25614906832298134,
+   "p": 0.0004699777000064166,
+   "facts": {
+    "segment": "category=Furniture",
+    "break_period": "2024-07-08",
+    "segment_change": "-51%",
+    "overall_change": "+3%"
+   },
+   "text": {
+    "vi": "Nhóm `category=Furniture` có `revenue` sụt giảm từ 2024-07-08: trung bình mỗi tuần -51% so với giai đoạn trước, trong khi toàn bộ dữ liệu +3%.",
+    "en": "Segment `category=Furniture` saw `revenue` fall from 2024-07-08: per-week average -51% vs. before, while the overall moved +3%."
+   },
+   "chart": {
+    "kind": "line",
+    "labels": [
+     "2023-01-02",
+     "2023-01-09",
+     "2023-01-16",
+     "2023-01-23",
+     "2023-01-30",
+     "2023-02-06",
+     "2023-02-13",
+     "2023-02-20",
+     "2023-02-27",
+     "2023-03-06",
+     "2023-03-13",
+     "2023-03-20",
+     "2023-03-27",
+     "2023-04-03",
+     "2023-04-10",
+     "2023-04-17",
+     "2023-04-24",
+     "2023-05-01",
+     "2023-05-08",
+     "2023-05-15",
+     "2023-05-22",
+     "2023-05-29",
+     "2023-06-05",
+     "2023-06-12",
+     "2023-06-19",
+     "2023-06-26",
+     "2023-07-03",
+     "2023-07-10",
+     "2023-07-17",
+     "2023-07-24",
+     "2023-07-31",
+     "2023-08-07",
+     "2023-08-14",
+     "2023-08-21",
+     "2023-08-28",
+     "2023-09-04",
+     "2023-09-11",
+     "2023-09-18",
+     "2023-09-25",
+     "2023-10-02",
+     "2023-10-09",
+     "2023-10-16",
+     "2023-10-23",
+     "2023-10-30",
+     "2023-11-06",
+     "2023-11-13",
+     "2023-11-20",
+     "2023-11-27",
+     "2023-12-04",
+     "2023-12-11",
+     "2023-12-18",
+     "2023-12-25",
+     "2024-01-01",
+     "2024-01-08",
+     "2024-01-15",
+     "2024-01-22",
+     "2024-01-29",
+     "2024-02-05",
+     "2024-02-12",
+     "2024-02-19",
+     "2024-02-26",
+     "2024-03-04",
+     "2024-03-11",
+     "2024-03-18",
+     "2024-03-25",
+     "2024-04-01",
+     "2024-04-08",
+     "2024-04-15",
+     "2024-04-22",
+     "2024-04-29",
+     "2024-05-06",
+     "2024-05-13",
+     "2024-05-20",
+     "2024-05-27",
+     "2024-06-03",
+     "2024-06-10",
+     "2024-06-17",
+     "2024-06-24",
+     "2024-07-01",
+     "2024-07-08",
+     "2024-07-15",
+     "2024-07-22",
+     "2024-07-29",
+     "2024-08-05",
+     "2024-08-12",
+     "2024-08-19",
+     "2024-08-26",
+     "2024-09-02",
+     "2024-09-09",
+     "2024-09-16",
+     "2024-09-23",
+     "2024-09-30",
+     "2024-10-07",
+     "2024-10-14",
+     "2024-10-21",
+     "2024-10-28",
+     "2024-11-04",
+     "2024-11-11",
+     "2024-11-18",
+     "2024-11-25",
+     "2024-12-02",
+     "2024-12-09",
+     "2024-12-16",
+     "2024-12-23"
+    ],
+    "values": [
+     20718.75,
+     13120.140000000001,
+     20756.29,
+     16536.95,
+     13625.43,
+     18072.02,
+     18437.15,
+     22261.45,
+     67344.52,
+     16513.26,
+     22703.83,
+     25504.13,
+     15742.2,
+     29597.7,
+     22579.94,
+     27111.92,
+     32401.87,
+     24424.12,
+     9340.87,
+     34578.299999999996,
+     35150.3,
+     26196.41,
+     24687.88,
+     16772.14,
+     19763.66,
+     32611.33,
+     19846.86,
+     11856.12,
+     12289.5,
+     23015.65,
+     22255.35,
+     21039.39,
+     22259.89,
+     50298.5,
+     36502.95,
+     30571.989999999998,
+     24046.08,
+     24697.02,
+     37182.26,
+     26279.26,
+     141853.06,
+     23329.39,
+     21311.97,
+     41403.020000000004,
+     27114.66,
+     26978.05,
+     30272.65,
+     31964.76,
+     72295.7,
+     56685.28,
+     30266.26,
+     64851.54,
+     24474.1,
+     20266.64,
+     41678.340000000004,
+     17876.66,
+     26811.519999999997,
+     30549.04,
+     22075.89,
+     27187.06,
+     21755.87,
+     14301.75,
+     24237.8,
+     20996.440000000002,
+     27039.09,
+     32929.48,
+     19950.09,
+     15739.29,
+     22549.44,
+     42305.45,
+     27769.03,
+     30556.829999999998,
+     17155.39,
+     68649.49,
+     110309.17,
+     28724.989999999998,
+     25467.98,
+     85403.69,
+     22920.04,
+     11342.72,
+     12071.15,
+     11112.57,
+     18156.09,
+     15679.5,
+     12729.89,
+     10373.130000000001,
+     10982.62,
+     10529.82,
+     15965.28,
+     14071.97,
+     10706.55,
+     17891.420000000002,
+     10887.66,
+     11863.05,
+     11514.880000000001,
+     9810.66,
+     17605.45,
+     14376.76,
+     17302.5,
+     12011.11,
+     27833.32,
+     21678.78,
+     27713.05,
+     23724.11
+    ],
+    "marker": "2024-07-08"
+   },
+   "score": 0.5968,
+   "theme": "time",
+   "id": "I03"
+  },
+  {
+   "type": "group_diff",
+   "columns": [
+    "satisfaction",
+    "returned"
+   ],
+   "strength": 0.7,
+   "impact": 1.0,
+   "p": 0.0,
+   "facts": {
+    "dimension": "satisfaction",
+    "measure": "returned",
+    "highest_group": "2",
+    "highest_value": "83.3%",
+    "lowest_group": "5",
+    "lowest_value": "0.3%",
+    "overall": "12.4%",
+    "eta_squared": "0.390",
+    "cohens_h": "2.20"
+   },
+   "text": {
+    "vi": "Tỉ lệ `returned` khác biệt rõ theo `satisfaction`: cao nhất ở `2` (83.3%), thấp nhất ở `5` (0.3%); trung bình chung 12.4%.",
+    "en": "`returned` rate varies by `satisfaction`: highest for `2` (83.3%), lowest for `5` (0.3%); overall 12.4%."
+   },
+   "chart": {
+    "kind": "bar",
+    "labels": [
+     "2",
+     "3",
+     "4",
+     "5"
+    ],
+    "values": [
+     83.33333333333334,
+     26.542872747132712,
+     3.0423280423280423,
+     0.25252525252525254
+    ],
+    "unit": "%",
+    "highlight": [
+     "2",
+     "5"
+    ]
+   },
+   "score": 0.595,
+   "theme": "segment",
+   "id": "I04"
+  },
+  {
+   "type": "drivers",
+   "columns": [
+    "returned",
+    "satisfaction",
+    "channel"
+   ],
+   "strength": 0.6244643209175595,
+   "impact": 1.0,
+   "p": null,
+   "facts": {
+    "target": "returned",
+    "drivers": [
+     {
+      "column": "satisfaction",
+      "strength": "η=0.62"
+     },
+     {
+      "column": "channel",
+      "strength": "η=0.17"
+     }
+    ]
+   },
+   "text": {
+    "vi": "Các yếu tố liên quan mạnh nhất tới `returned` (theo thứ tự): `satisfaction` (η=0.62), `channel` (η=0.17).",
+    "en": "Strongest factors associated with `returned` (ranked): `satisfaction` (η=0.62), `channel` (η=0.17)."
+   },
+   "chart": {
+    "kind": "bar",
+    "labels": [
+     "satisfaction",
+     "channel"
+    ],
+    "values": [
+     0.6244643209175595,
+     0.1747827327472952
+    ],
+    "unit": ""
+   },
+   "score": 0.5932,
+   "theme": "segment",
+   "id": "I05"
+  },
+  {
+   "type": "correlation",
+   "columns": [
+    "quantity",
+    "discount"
+   ],
+   "strength": 0.645953399801488,
+   "impact": 1.0,
+   "p": 0.0,
+   "facts": {
+    "rho": "0.65",
+    "pearson": "0.19",
+    "high_group_mean": "0.164",
+    "low_group_mean": "0.0363",
+    "high_threshold": "≥ 5",
+    "low_threshold": "≤ 2"
+   },
+   "text": {
+    "vi": "`quantity` và `discount` tương quan thuận mạnh (Spearman ρ = 0.65): khi `quantity` ≥ 5, `discount` trung bình 0.164, so với 0.0363 khi `quantity` ≤ 2.",
+    "en": "`quantity` and `discount` have a strong positive correlation (Spearman ρ = 0.65): when `quantity` ≥ 5, `discount` averages 0.164 vs. 0.0363 when `quantity` ≤ 2."
+   },
+   "chart": {
+    "kind": "scatter",
+    "x": "quantity",
+    "y": "discount"
+   },
+   "score": 0.5168,
+   "theme": "relation",
+   "id": "I06"
+  },
+  {
+   "type": "seasonality",
+   "columns": [
+    "order_date",
+    "revenue"
+   ],
+   "strength": 0.5639649970997572,
+   "impact": 1.0,
+   "p": 2.327170634381259e-05,
+   "facts": {
+    "peak_month": "December",
+    "peak_uplift": "46%",
+    "trough_month": "September",
+    "trough_change": "-17%"
+   },
+   "text": {
+    "vi": "Tổng `revenue` có tính mùa vụ theo tháng: cao nhất vào tháng 12 (cao hơn 46% so với mức xu hướng), thấp nhất vào tháng 9 (-17%).",
+    "en": "Total `revenue` is seasonal by month: peaks in December (46% above trend), lowest in September (-17%)."
+   },
+   "chart": {
+    "kind": "bar",
+    "labels": [
+     "January",
+     "February",
+     "March",
+     "April",
+     "May",
+     "June",
+     "July",
+     "August",
+     "September",
+     "October",
+     "November",
+     "December"
+    ],
+    "values": [
+     96.01890538120443,
+     92.3472554640632,
+     95.13037081277737,
+     95.03445559141672,
+     94.47230907602993,
+     112.49664396563104,
+     87.60949935942023,
+     104.76319935003669,
+     83.45778982684594,
+     93.81714819996887,
+     98.72970561096753,
+     146.12271736163808
+    ],
+    "highlight": [
+     "December"
+    ]
+   },
+   "score": 0.5076,
+   "theme": "time",
+   "id": "I07"
+  },
+  {
+   "type": "correlation",
+   "columns": [
+    "quantity",
+    "revenue"
+   ],
+   "strength": 0.4771774550662999,
+   "impact": 1.0,
+   "p": 0.0,
+   "facts": {
+    "rho": "0.48",
+    "pearson": "0.75",
+    "high_group_mean": "1,934",
+    "low_group_mean": "436.4",
+    "high_threshold": "≥ 5",
+    "low_threshold": "≤ 2"
+   },
+   "text": {
+    "vi": "`quantity` và `revenue` tương quan thuận trung bình (Spearman ρ = 0.48): khi `quantity` ≥ 5, `revenue` trung bình 1,934, so với 436.4 khi `quantity` ≤ 2.",
+    "en": "`quantity` and `revenue` have a moderate positive correlation (Spearman ρ = 0.48): when `quantity` ≥ 5, `revenue` averages 1,934 vs. 436.4 when `quantity` ≤ 2."
+   },
+   "chart": {
+    "kind": "scatter",
+    "x": "quantity",
+    "y": "revenue"
+   },
+   "score": 0.3817,
+   "theme": "relation",
+   "id": "I08"
+  },
+  {
+   "type": "anomaly_period",
+   "columns": [
+    "order_date",
+    "revenue"
+   ],
+   "strength": 0.5807922304969887,
+   "impact": 0.5,
+   "p": null,
+   "facts": {
+    "period": "2024-08-26",
+    "value": "221,784",
+    "expected": "97,062",
+    "robust_z": "7.0"
+   },
+   "text": {
+    "vi": "Tổng `revenue` bất thường tại 2024-08-26: 221,784 so với mức kỳ vọng khoảng 97,062 (đã tính xu hướng và mùa vụ).",
+    "en": "Unusual total `revenue` in 2024-08-26: 221,784 vs. about 97,062 expected (after trend and seasonality)."
+   },
+   "chart": {
+    "kind": "line",
+    "labels": [
+     "2023-01-02",
+     "2023-01-09",
+     "2023-01-16",
+     "2023-01-23",
+     "2023-01-30",
+     "2023-02-06",
+     "2023-02-13",
+     "2023-02-20",
+     "2023-02-27",
+     "2023-03-06",
+     "2023-03-13",
+     "2023-03-20",
+     "2023-03-27",
+     "2023-04-03",
+     "2023-04-10",
+     "2023-04-17",
+     "2023-04-24",
+     "2023-05-01",
+     "2023-05-08",
+     "2023-05-15",
+     "2023-05-22",
+     "2023-05-29",
+     "2023-06-05",
+     "2023-06-12",
+     "2023-06-19",
+     "2023-06-26",
+     "2023-07-03",
+     "2023-07-10",
+     "2023-07-17",
+     "2023-07-24",
+     "2023-07-31",
+     "2023-08-07",
+     "2023-08-14",
+     "2023-08-21",
+     "2023-08-28",
+     "2023-09-04",
+     "2023-09-11",
+     "2023-09-18",
+     "2023-09-25",
+     "2023-10-02",
+     "2023-10-09",
+     "2023-10-16",
+     "2023-10-23",
+     "2023-10-30",
+     "2023-11-06",
+     "2023-11-13",
+     "2023-11-20",
+     "2023-11-27",
+     "2023-12-04",
+     "2023-12-11",
+     "2023-12-18",
+     "2023-12-25",
+     "2024-01-01",
+     "2024-01-08",
+     "2024-01-15",
+     "2024-01-22",
+     "2024-01-29",
+     "2024-02-05",
+     "2024-02-12",
+     "2024-02-19",
+     "2024-02-26",
+     "2024-03-04",
+     "2024-03-11",
+     "2024-03-18",
+     "2024-03-25",
+     "2024-04-01",
+     "2024-04-08",
+     "2024-04-15",
+     "2024-04-22",
+     "2024-04-29",
+     "2024-05-06",
+     "2024-05-13",
+     "2024-05-20",
+     "2024-05-27",
+     "2024-06-03",
+     "2024-06-10",
+     "2024-06-17",
+     "2024-06-24",
+     "2024-07-01",
+     "2024-07-08",
+     "2024-07-15",
+     "2024-07-22",
+     "2024-07-29",
+     "2024-08-05",
+     "2024-08-12",
+     "2024-08-19",
+     "2024-08-26",
+     "2024-09-02",
+     "2024-09-09",
+     "2024-09-16",
+     "2024-09-23",
+     "2024-09-30",
+     "2024-10-07",
+     "2024-10-14",
+     "2024-10-21",
+     "2024-10-28",
+     "2024-11-04",
+     "2024-11-11",
+     "2024-11-18",
+     "2024-11-25",
+     "2024-12-02",
+     "2024-12-09",
+     "2024-12-16",
+     "2024-12-23"
+    ],
+    "values": [
+     73783.24,
+     50980.62,
+     50741.02,
+     74785.79000000001,
+     69150.24,
+     66434.27,
+     72415.16,
+     57776.34,
+     105490.28,
+     68757.6,
+     69864.4,
+     73562.18000000001,
+     50524.74,
+     80751.62,
+     84810.14,
+     85069.95,
+     58148.1,
+     57414.89,
+     61257.590000000004,
+     80268.45,
+     93500.86,
+     70379.51,
+     46162.49,
+     59331.84,
+     81987.1,
+     96815.96,
+     62157.08,
+     72731.2,
+     70253.62,
+     89146.64,
+     73706.49,
+     73949.33,
+     77503.42,
+     104124.64,
+     86987.16,
+     83921.44,
+     75164.35,
+     57296.77,
+     94529.43,
+     67426.82,
+     192512.94,
+     57671.91,
+     66720.79,
+     103738.31,
+     102647.02,
+     83353.19,
+     85001.52,
+     83900.61,
+     193975.37,
+     153060.88999999998,
+     90669.52,
+     166685.3,
+     105040.37,
+     74629.86,
+     120014.1,
+     78027.03,
+     80625.94,
+     88433.40000000001,
+     92655.4,
+     79289.7,
+     71297.91,
+     76291.23,
+     79649.06999999999,
+     89958.7,
+     80424.32,
+     79129.31,
+     107016.28,
+     62062.65,
+     75488.03,
+     78593.09,
+     88388.69,
+     125017.56999999999,
+     74111.46,
+     103576.34,
+     190101.42,
+     67550.93,
+     79945.02,
+     140118.35,
+     88577.78,
+     97423.22,
+     66371.56,
+     67352.62,
+     53765.33,
+     86650.42,
+     42864.05,
+     70964.79,
+     221783.66,
+     69130.75,
+     94673.0,
+     79953.43,
+     54473.99,
+     58082.799999999996,
+     62739.590000000004,
+     71113.13,
+     69211.5,
+     56662.55,
+     89248.34,
+     75762.7,
+     161468.26,
+     47995.2,
+     118703.93,
+     125830.34,
+     116247.91,
+     149426.49
+    ],
+    "marker": "2024-08-26"
+   },
+   "score": 0.3485,
+   "theme": "time",
+   "id": "I09"
+  },
+  {
+   "type": "duplicates",
+   "columns": [],
+   "strength": 0.46211180124223605,
+   "impact": 1.0,
+   "p": null,
+   "facts": {
+    "duplicate_rows": "50",
+    "duplicate_pct": "0.62%"
+   },
+   "text": {
+    "vi": "Có 50 dòng trùng lặp hoàn toàn (0.62% dữ liệu) — cần khử trùng trước khi tổng hợp.",
+    "en": "50 fully duplicated rows (0.62% of data) — deduplicate before aggregating."
+   },
+   "chart": null,
+   "score": 0.3235,
+   "theme": "quality",
+   "id": "I10"
+  },
+  {
+   "type": "contribution",
+   "columns": [
+    "category",
+    "revenue"
+   ],
+   "strength": 0.4507811946592894,
+   "impact": 0.588085895994467,
+   "p": null,
+   "facts": {
+    "top": "Electronics",
+    "share": "58.8%",
+    "row_share": "29.6%",
+    "second": "Furniture",
+    "second_share": "31.2%"
+   },
+   "text": {
+    "vi": "`Electronics` đóng góp lớn nhất vào `revenue`: 58.8% tổng (với 29.6% số dòng), tiếp theo là `Furniture` (31.2%).",
+    "en": "`Electronics` is the largest contributor to `revenue`: 58.8% of the total (29.6% of rows), followed by `Furniture` (31.2%)."
+   },
+   "chart": {
+    "kind": "bar",
+    "labels": [
+     "Electronics",
+     "Furniture",
+     "Clothing",
+     "Office"
+    ],
+    "values": [
+     58.808589599446705,
+     31.175191411255447,
+     5.0334699787142405,
+     4.982749010583603
+    ],
+    "unit": "%",
+    "highlight": [
+     "Electronics"
+    ]
+   },
+   "score": 0.32,
+   "theme": "segment",
+   "id": "I11"
+  },
+  {
+   "type": "segment_trend",
+   "columns": [
+    "order_date",
+    "category",
+    "revenue"
+   ],
+   "strength": 0.4586760091104479,
+   "impact": 0.24683229813664595,
+   "p": 0.0007580451790164548,
+   "facts": {
+    "segment": "category=Office",
+    "segment_trend": "+69%",
+    "overall_trend": "+23%"
+   },
+   "text": {
+    "vi": "Nhóm `category=Office` có `revenue` tăng +69% theo đường xu hướng trong kỳ, khác biệt so với toàn bộ dữ liệu (+23%).",
+    "en": "Segment `category=Office` `revenue` grew +69% along its trend line over the period, diverging from the overall (+23%)."
+   },
+   "chart": {
+    "kind": "line",
+    "labels": [
+     "2023-01-02",
+     "2023-01-09",
+     "2023-01-16",
+     "2023-01-23",
+     "2023-01-30",
+     "2023-02-06",
+     "2023-02-13",
+     "2023-02-20",
+     "2023-02-27",
+     "2023-03-06",
+     "2023-03-13",
+     "2023-03-20",
+     "2023-03-27",
+     "2023-04-03",
+     "2023-04-10",
+     "2023-04-17",
+     "2023-04-24",
+     "2023-05-01",
+     "2023-05-08",
+     "2023-05-15",
+     "2023-05-22",
+     "2023-05-29",
+     "2023-06-05",
+     "2023-06-12",
+     "2023-06-19",
+     "2023-06-26",
+     "2023-07-03",
+     "2023-07-10",
+     "2023-07-17",
+     "2023-07-24",
+     "2023-07-31",
+     "2023-08-07",
+     "2023-08-14",
+     "2023-08-21",
+     "2023-08-28",
+     "2023-09-04",
+     "2023-09-11",
+     "2023-09-18",
+     "2023-09-25",
+     "2023-10-02",
+     "2023-10-09",
+     "2023-10-16",
+     "2023-10-23",
+     "2023-10-30",
+     "2023-11-06",
+     "2023-11-13",
+     "2023-11-20",
+     "2023-11-27",
+     "2023-12-04",
+     "2023-12-11",
+     "2023-12-18",
+     "2023-12-25",
+     "2024-01-01",
+     "2024-01-08",
+     "2024-01-15",
+     "2024-01-22",
+     "2024-01-29",
+     "2024-02-05",
+     "2024-02-12",
+     "2024-02-19",
+     "2024-02-26",
+     "2024-03-04",
+     "2024-03-11",
+     "2024-03-18",
+     "2024-03-25",
+     "2024-04-01",
+     "2024-04-08",
+     "2024-04-15",
+     "2024-04-22",
+     "2024-04-29",
+     "2024-05-06",
+     "2024-05-13",
+     "2024-05-20",
+     "2024-05-27",
+     "2024-06-03",
+     "2024-06-10",
+     "2024-06-17",
+     "2024-06-24",
+     "2024-07-01",
+     "2024-07-08",
+     "2024-07-15",
+     "2024-07-22",
+     "2024-07-29",
+     "2024-08-05",
+     "2024-08-12",
+     "2024-08-19",
+     "2024-08-26",
+     "2024-09-02",
+     "2024-09-09",
+     "2024-09-16",
+     "2024-09-23",
+     "2024-09-30",
+     "2024-10-07",
+     "2024-10-14",
+     "2024-10-21",
+     "2024-10-28",
+     "2024-11-04",
+     "2024-11-11",
+     "2024-11-18",
+     "2024-11-25",
+     "2024-12-02",
+     "2024-12-09",
+     "2024-12-16",
+     "2024-12-23"
+    ],
+    "values": [
+     2805.79,
+     3461.65,
+     3460.12,
+     2905.7599999999998,
+     1857.25,
+     2892.27,
+     3240.78,
+     3541.88,
+     2085.3,
+     3137.57,
+     4939.75,
+     3721.65,
+     3215.57,
+     3523.51,
+     2151.67,
+     3062.86,
+     1698.15,
+     2366.57,
+     4344.96,
+     4407.76,
+     2744.99,
+     1813.1399999999999,
+     2170.39,
+     2631.44,
+     2787.27,
+     2020.79,
+     3807.73,
+     2285.25,
+     3356.38,
+     4010.9500000000003,
+     3732.07,
+     3813.45,
+     3648.45,
+     2725.44,
+     3238.88,
+     4018.06,
+     2965.83,
+     2269.72,
+     2853.29,
+     2950.73,
+     3821.25,
+     2648.4,
+     2617.25,
+     3217.52,
+     2798.63,
+     4086.88,
+     5274.9,
+     3507.16,
+     5633.33,
+     4418.32,
+     5661.37,
+     3068.15,
+     3817.39,
+     4180.25,
+     14907.550000000001,
+     4114.23,
+     4054.12,
+     21701.5,
+     6057.18,
+     3382.65,
+     1204.63,
+     3024.37,
+     3134.2400000000002,
+     22257.179999999997,
+     2836.49,
+     5007.33,
+     11538.93,
+     5173.41,
+     5026.43,
+     4194.84,
+     2892.21,
+     1871.69,
+     2999.99,
+     3443.6,
+     4503.77,
+     4284.49,
+     4998.2300000000005,
+     4625.11,
+     1858.8600000000001,
+     5028.4,
+     3081.87,
+     2456.36,
+     3482.23,
+     15787.18,
+     5356.91,
+     3181.75,
+     2979.5499999999997,
+     3336.99,
+     4127.2,
+     6195.42,
+     3545.5499999999997,
+     4523.87,
+     3542.64,
+     2690.95,
+     2282.31,
+     4977.62,
+     4870.18,
+     5348.57,
+     2592.24,
+     1990.45,
+     7942.5199999999995,
+     6360.04,
+     5317.91,
+     9155.58
+    ]
+   },
+   "score": 0.2884,
+   "theme": "time",
+   "id": "I12"
+  },
+  {
+   "type": "skew",
+   "columns": [
+    "quantity"
+   ],
+   "strength": 1.0,
+   "impact": 0.5,
+   "p": null,
+   "facts": {
+    "skewness": "24.14",
+    "mean": "4.30",
+    "median": "3"
+   },
+   "text": {
+    "vi": "Phân phối `quantity` lệch phải mạnh (độ lệch 24.14): trung bình 4.30 nhưng trung vị chỉ 3 — nên dùng trung vị khi báo cáo.",
+    "en": "`quantity` is strongly right-skewed (skewness 24.14): mean 4.30 vs. median 3 — report the median."
+   },
+   "chart": null,
+   "score": 0.28,
+   "theme": "distribution",
+   "id": "I13"
+  },
+  {
+   "type": "skew",
+   "columns": [
+    "revenue"
+   ],
+   "strength": 1.0,
+   "impact": 0.5,
+   "p": null,
+   "facts": {
+    "skewness": "29.32",
+    "mean": "1,122",
+    "median": "516.3"
+   },
+   "text": {
+    "vi": "Phân phối `revenue` lệch phải mạnh (độ lệch 29.32): trung bình 1,122 nhưng trung vị chỉ 516.3 — nên dùng trung vị khi báo cáo.",
+    "en": "`revenue` is strongly right-skewed (skewness 29.32): mean 1,122 vs. median 516.3 — report the median."
+   },
+   "chart": null,
+   "score": 0.28,
+   "theme": "distribution",
+   "id": "I14"
+  },
+  {
+   "type": "outliers",
+   "columns": [
+    "quantity"
+   ],
+   "strength": 0.6226664791932426,
+   "impact": 0.2,
+   "p": null,
+   "facts": {
+    "n_outliers": "12",
+    "outlier_pct": "0.15%",
+    "max": "288",
+    "min": "1",
+    "median": "3",
+    "share_of_total": "8.1%",
+    "outlier_range": "156–288"
+   },
+   "text": {
+    "vi": "`quantity` có 12 giá trị ngoại lai cực đoan (0.15%), trong khoảng 156–288 so với trung vị 3; riêng nhóm này chiếm 8.1% tổng `quantity`.",
+    "en": "`quantity` has 12 extreme outliers (0.15%), ranging 156–288 vs. a median of 3; together they account for 8.1% of total `quantity`."
+   },
+   "chart": null,
+   "score": 0.254,
+   "theme": "distribution",
+   "id": "I15"
+  },
+  {
+   "type": "pareto",
+   "columns": [
+    "sales_rep",
+    "quantity"
+   ],
+   "strength": 0.3701441238483089,
+   "impact": 0.49611529907864715,
+   "p": null,
+   "facts": {
+    "top_n": 6,
+    "n_groups": 30,
+    "top_share": "49.6%",
+    "top_members": [
+     "Rep_01",
+     "Rep_00",
+     "Rep_02",
+     "Rep_12",
+     "Rep_24",
+     "Rep_22"
+    ]
+   },
+   "text": {
+    "vi": "`quantity` tập trung theo `sales_rep`: 6/30 nhóm hàng đầu (Rep_01, Rep_00, Rep_02, Rep_12, Rep_24) tạo ra 49.6% tổng `quantity`.",
+    "en": "`quantity` is concentrated by `sales_rep`: the top 6 of 30 (Rep_01, Rep_00, Rep_02, Rep_12, Rep_24) generate 49.6% of total `quantity`."
+   },
+   "chart": {
+    "kind": "bar",
+    "labels": [
+     "Rep_01",
+     "Rep_00",
+     "Rep_02",
+     "Rep_12",
+     "Rep_24",
+     "Rep_22",
+     "Rep_03",
+     "Rep_18",
+     "Rep_13",
+     "Rep_15",
+     "Rep_28",
+     "Rep_14"
+    ],
+    "values": [
+     14.103341709268404,
+     13.127112035352223,
+     13.002917136007856,
+     3.448574646911013,
+     3.4196921121797645,
+     2.5098922681454523,
+     2.501227507726078,
+     2.4521271986829563,
+     2.446350691736707,
+     2.4347976778442075,
+     2.3452618201773388,
+     2.2383964416717212
+    ],
+    "unit": "%"
+   },
+   "score": 0.2512,
+   "theme": "segment",
+   "id": "I16"
+  },
+  {
+   "type": "group_diff",
+   "columns": [
+    "category",
+    "revenue"
+   ],
+   "strength": 0.2892851298483431,
+   "impact": 1.0,
+   "p": 4.1803298599310975e-152,
+   "facts": {
+    "dimension": "category",
+    "measure": "revenue",
+    "highest_group": "Electronics",
+    "highest_value": "2,230",
+    "lowest_group": "Office",
+    "lowest_value": "226.5",
+    "overall": "1,122",
+    "eta_squared": "0.084",
+    "ratio": "9.8"
+   },
+   "text": {
+    "vi": "`revenue` trung bình khác biệt rõ theo `category`: cao nhất ở `Electronics` (2,230), thấp nhất ở `Office` (226.5) (gấp 9.8 lần); trung bình chung 1,122.",
+    "en": "Average `revenue` varies by `category`: highest for `Electronics` (2,230), lowest for `Office` (226.5) (9.8x); overall 1,122."
+   },
+   "chart": {
+    "kind": "bar",
+    "labels": [
+     "Electronics",
+     "Furniture",
+     "Office",
+     "Clothing"
+    ],
+    "values": [
+     2230.4110793784125,
+     1365.2871823472356,
+     226.45123301459486,
+     280.57954938271604
+    ],
+    "unit": "",
+    "highlight": [
+     "Electronics",
+     "Office"
+    ]
+   },
+   "score": 0.2459,
+   "theme": "segment",
+   "id": "I17"
+  },
+  {
+   "type": "pareto",
+   "columns": [
+    "sales_rep",
+    "revenue"
+   ],
+   "strength": 0.3601905150864934,
+   "impact": 0.48815241206919474,
+   "p": null,
+   "facts": {
+    "top_n": 6,
+    "n_groups": 30,
+    "top_share": "48.8%",
+    "top_members": [
+     "Rep_01",
+     "Rep_00",
+     "Rep_02",
+     "Rep_24",
+     "Rep_12",
+     "Rep_15"
+    ]
+   },
+   "text": {
+    "vi": "`revenue` tập trung theo `sales_rep`: 6/30 nhóm hàng đầu (Rep_01, Rep_00, Rep_02, Rep_24, Rep_12) tạo ra 48.8% tổng `revenue`.",
+    "en": "`revenue` is concentrated by `sales_rep`: the top 6 of 30 (Rep_01, Rep_00, Rep_02, Rep_24, Rep_12) generate 48.8% of total `revenue`."
+   },
+   "chart": {
+    "kind": "bar",
+    "labels": [
+     "Rep_01",
+     "Rep_00",
+     "Rep_02",
+     "Rep_24",
+     "Rep_12",
+     "Rep_15",
+     "Rep_22",
+     "Rep_13",
+     "Rep_18",
+     "Rep_28",
+     "Rep_14",
+     "Rep_29"
+    ],
+    "values": [
+     13.018381008118418,
+     12.830206013703322,
+     12.589659169893183,
+     3.7986044808766763,
+     3.6148706316929275,
+     2.963519902634948,
+     2.9429254135587684,
+     2.87749091632705,
+     2.6667184049104606,
+     2.5507659221988743,
+     2.322624828743493,
+     2.2948702457047516
+    ],
+    "unit": "%"
+   },
+   "score": 0.2435,
+   "theme": "segment",
+   "id": "I18"
+  },
+  {
+   "type": "group_diff",
+   "columns": [
+    "channel",
+    "returned"
+   ],
+   "strength": 0.21986886667219005,
+   "impact": 1.0,
+   "p": 6.1207269290776736e-55,
+   "facts": {
+    "dimension": "channel",
+    "measure": "returned",
+    "highest_group": "Online",
+    "highest_value": "18.2%",
+    "lowest_group": "Store",
+    "lowest_value": "6.2%",
+    "overall": "12.4%",
+    "eta_squared": "0.031",
+    "ratio": "2.9",
+    "cohens_h": "0.38"
+   },
+   "text": {
+    "vi": "Tỉ lệ `returned` khác biệt rõ theo `channel`: cao nhất ở `Online` (18.2%), thấp nhất ở `Store` (6.2%) (gấp 2.9 lần); trung bình chung 12.4%.",
+    "en": "`returned` rate varies by `channel`: highest for `Online` (18.2%), lowest for `Store` (6.2%) (2.9x); overall 12.4%."
+   },
+   "chart": {
+    "kind": "bar",
+    "labels": [
+     "Online",
+     "Store",
+     "Partner"
+    ],
+    "values": [
+     18.188717429800153,
+     6.223922114047288,
+     7.944307944307945
+    ],
+    "unit": "%",
+    "highlight": [
+     "Online",
+     "Store"
+    ]
+   },
+   "score": 0.1869,
+   "theme": "segment",
+   "id": "I19"
+  },
+  {
+   "type": "contribution",
+   "columns": [
+    "region",
+    "revenue"
+   ],
+   "strength": 0.2760418230724769,
+   "impact": 0.42083345845798154,
+   "p": null,
+   "facts": {
+    "top": "West",
+    "share": "42.1%",
+    "row_share": "40.4%",
+    "second": "North",
+    "second_share": "17.8%"
+   },
+   "text": {
+    "vi": "`West` đóng góp lớn nhất vào `revenue`: 42.1% tổng (với 40.4% số dòng), tiếp theo là `North` (17.8%).",
+    "en": "`West` is the largest contributor to `revenue`: 42.1% of the total (40.4% of rows), followed by `North` (17.8%)."
+   },
+   "chart": {
+    "kind": "bar",
+    "labels": [
+     "West",
+     "North",
+     "South",
+     "East",
+     "Central"
+    ],
+    "values": [
+     42.083345845798156,
+     17.77465708163026,
+     17.148957800584622,
+     12.348747223082723,
+     10.64429204890424
+    ],
+    "unit": "%",
+    "highlight": [
+     "West"
+    ]
+   },
+   "score": 0.1803,
+   "theme": "segment",
+   "id": "I20"
+  },
+  {
+   "type": "missing",
+   "columns": [
+    "customer_age"
+   ],
+   "strength": 0.29937888198757756,
+   "impact": 1.0,
+   "p": null,
+   "facts": {
+    "missing_pct": "15.0%",
+    "missing_rows": "1,205",
+    "rows": "8,050"
+   },
+   "text": {
+    "vi": "Cột `customer_age` thiếu 15.0% giá trị (1,205/8,050 dòng).",
+    "en": "Column `customer_age` is missing 15.0% of values (1,205/8,050 rows)."
+   },
+   "chart": null,
+   "score": 0.1796,
+   "theme": "quality",
+   "id": "I21"
+  },
+  {
+   "type": "concentration",
+   "columns": [
+    "revenue"
+   ],
+   "strength": 0.37360120459002694,
+   "impact": 0.4362410841310243,
+   "p": null,
+   "facts": {
+    "top10_share": "43.6%",
+    "gini": "0.61"
+   },
+   "text": {
+    "vi": "`revenue` tập trung cao: 10% dòng lớn nhất chiếm 43.6% tổng giá trị (Gini 0.61).",
+    "en": "`revenue` is highly concentrated: the top 10% of rows hold 43.6% of the total (Gini 0.61)."
+   },
+   "chart": null,
+   "score": 0.1736,
+   "theme": "distribution",
+   "id": "I22"
+  },
+  {
+   "type": "constant_column",
+   "columns": [
+    "country"
+   ],
+   "strength": 0.6,
+   "impact": 0.3,
+   "p": null,
+   "facts": {
+    "value": "VN"
+   },
+   "text": {
+    "vi": "Cột `country` chỉ có một giá trị duy nhất (`VN`) — không mang thông tin phân tích.",
+    "en": "Column `country` has a single value (`VN`) — carries no analytical information."
+   },
+   "chart": null,
+   "score": 0.1728,
+   "theme": "quality",
+   "id": "I23"
+  },
+  {
+   "type": "contribution",
+   "columns": [
+    "region",
+    "quantity"
+   ],
+   "strength": 0.24992057302948906,
+   "impact": 0.39993645842359127,
+   "p": null,
+   "facts": {
+    "top": "West",
+    "share": "40.0%",
+    "row_share": "40.4%",
+    "second": "South",
+    "second_share": "17.7%"
+   },
+   "text": {
+    "vi": "`West` đóng góp lớn nhất vào `quantity`: 40.0% tổng (với 40.4% số dòng), tiếp theo là `South` (17.7%).",
+    "en": "`West` is the largest contributor to `quantity`: 40.0% of the total (40.4% of rows), followed by `South` (17.7%)."
+   },
+   "chart": {
+    "kind": "bar",
+    "labels": [
+     "West",
+     "South",
+     "North",
+     "East",
+     "Central"
+    ],
+    "values": [
+     39.99364584235913,
+     17.655893481211912,
+     17.164890390780695,
+     13.30618375068596,
+     11.879386534962308
+    ],
+    "unit": "%",
+    "highlight": [
+     "West"
+    ]
+   },
+   "score": 0.1614,
+   "theme": "segment",
+   "id": "I24"
+  },
+  {
+   "type": "dominance",
+   "columns": [
+    "region"
+   ],
+   "strength": 0.25481366459627325,
+   "impact": 0.40385093167701863,
+   "p": null,
+   "facts": {
+    "top": "West",
+    "share": "40.4%",
+    "n_groups": 5
+   },
+   "text": {
+    "vi": "`region` bị chi phối bởi `West` với 40.4% số dòng (trong 5 nhóm).",
+    "en": "`region` is dominated by `West` with 40.4% of rows (out of 5 groups)."
+   },
+   "chart": {
+    "kind": "bar",
+    "labels": [
+     "West",
+     "North",
+     "South",
+     "East",
+     "Central"
+    ],
+    "values": [
+     40.38509316770186,
+     17.77639751552795,
+     16.683229813664596,
+     13.77639751552795,
+     11.378881987577639
+    ],
+    "unit": "%"
+   },
+   "score": 0.05335,
+   "theme": "distribution",
+   "id": "I25"
+  }
+ ],
+ "secondary_columns": [],
+ "elapsed_sec": 1.98,
+ "summary": {
+  "headline": "`unit_price` trung bình khác biệt rõ theo `category`: cao nhất ở `Electronics` (475.8), thấp nhất ở `Office` (42.40) (gấp 11.2 lần); trung bình chung 246.3.",
+  "key_takeaways": [
+   {
+    "text": "Tỉ lệ `returned` khác biệt rõ theo `satisfaction`: cao nhất ở `2` (83.3%), thấp nhất ở `5` (0.3%); trung bình chung 12.4%.",
+    "evidence": [
+     "I04"
+    ]
+   },
+   {
+    "text": "`quantity` và `discount` tương quan thuận mạnh (Spearman ρ = 0.65): khi `quantity` ≥ 5, `discount` trung bình 0.164, so với 0.0363 khi `quantity` ≤ 2.",
+    "evidence": [
+     "I06"
+    ]
+   },
+   {
+    "text": "Tổng `revenue` có tính mùa vụ theo tháng: cao nhất vào tháng 12 (cao hơn 46% so với mức xu hướng), thấp nhất vào tháng 9 (-17%).",
+    "evidence": [
+     "I07"
+    ]
+   },
+   {
+    "text": "`unit_price` và `revenue` tương quan thuận rất mạnh (Spearman ρ = 0.84): khi `unit_price` ≥ 396.5, `revenue` trung bình 2,378, so với 180.4 khi `unit_price` ≤ 50.10.",
+    "evidence": [
+     "I02"
+    ]
+   },
+   {
+    "text": "Nhóm `category=Furniture` có `revenue` sụt giảm từ 2024-07-08: trung bình mỗi tuần -51% so với giai đoạn trước, trong khi toàn bộ dữ liệu +3%.",
+    "evidence": [
+     "I03"
+    ]
+   }
+  ],
+  "recommendations": [],
+  "caveats": [
+   {
+    "text": "Có 50 dòng trùng lặp hoàn toàn (0.62% dữ liệu) — cần khử trùng trước khi tổng hợp.",
+    "evidence": [
+     "I10"
+    ]
+   },
+   {
+    "text": "Cột `customer_age` thiếu 15.0% giá trị (1,205/8,050 dòng).",
+    "evidence": [
+     "I21"
+    ]
+   },
+   {
+    "text": "Cột `country` chỉ có một giá trị duy nhất (`VN`) — không mang thông tin phân tích.",
+    "evidence": [
+     "I23"
+    ]
+   }
+  ]
+ },
+ "llm": null
+}

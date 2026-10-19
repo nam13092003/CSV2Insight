@@ -1,0 +1,90 @@
+{
+  "P1_trend": {
+    "kind": "trend",
+    "cols": [
+      "revenue",
+      "order_date"
+    ]
+  },
+  "P2_december": {
+    "kind": "seasonality",
+    "cols": [
+      "revenue",
+      "order_date"
+    ]
+  },
+  "P3_west_dominant": {
+    "kind": "dominance",
+    "cols": [
+      "region",
+      "revenue"
+    ],
+    "value": "West"
+  },
+  "P4_discount_qty": {
+    "kind": "correlation",
+    "cols": [
+      "discount",
+      "quantity"
+    ]
+  },
+  "P5_online_returns": {
+    "kind": "group_diff",
+    "cols": [
+      "channel",
+      "returned"
+    ],
+    "value": "Online"
+  },
+  "P6_furniture_drop": {
+    "kind": "change_point",
+    "cols": [
+      "category",
+      "revenue"
+    ],
+    "value": "Furniture"
+  },
+  "P7_returned_satisfaction": {
+    "kind": "group_diff",
+    "cols": [
+      "returned",
+      "satisfaction"
+    ]
+  },
+  "P8_age_missing": {
+    "kind": "missing",
+    "cols": [
+      "customer_age"
+    ]
+  },
+  "P9_duplicates": {
+    "kind": "duplicates",
+    "cols": []
+  },
+  "P10_qty_outliers": {
+    "kind": "outliers",
+    "cols": [
+      "quantity"
+    ]
+  },
+  "P11_constant": {
+    "kind": "constant",
+    "cols": [
+      "country"
+    ]
+  },
+  "P12_rep_concentration": {
+    "kind": "concentration",
+    "cols": [
+      "sales_rep",
+      "revenue"
+    ]
+  },
+  "P13_price_by_category": {
+    "kind": "group_diff",
+    "cols": [
+      "category",
+      "unit_price"
+    ]
+  }
+}

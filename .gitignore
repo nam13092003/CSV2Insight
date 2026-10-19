@@ -1,0 +1,13 @@
+# --- secrets: never commit ---
+openrouter_key.txt
+*.key
+.env
+
+# --- generated / local ---
+insight_output/
+__pycache__/
+*.pyc
+.venv/
+venv/
+.DS_Store
+Thumbs.db

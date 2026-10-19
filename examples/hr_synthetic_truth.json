@@ -1,0 +1,63 @@
+{
+  "H1_overtime_churn": {
+    "kind": "group_diff",
+    "cols": [
+      "overtime",
+      "churn"
+    ]
+  },
+  "H2_salary_driver": {
+    "kind": "group_diff",
+    "cols": [
+      "churn",
+      "monthly_salary_m"
+    ]
+  },
+  "H3_salary_by_dept": {
+    "kind": "group_diff",
+    "cols": [
+      "department",
+      "monthly_salary_m"
+    ]
+  },
+  "H4_tenure_age": {
+    "kind": "correlation",
+    "cols": [
+      "age",
+      "tenure_years"
+    ]
+  },
+  "H5_weekday_hires": {
+    "kind": "seasonality",
+    "cols": [
+      "hire_date",
+      "weekday"
+    ]
+  },
+  "H6_hiring_trend": {
+    "kind": "trend",
+    "cols": [
+      "hire_date"
+    ]
+  },
+  "H7_missing_sat_sales": {
+    "kind": "missing_pattern",
+    "cols": [
+      "satisfaction",
+      "department"
+    ]
+  },
+  "H8_dept_division": {
+    "kind": "hierarchy",
+    "cols": [
+      "department",
+      "division"
+    ]
+  },
+  "H10_commute_outliers": {
+    "kind": "outliers",
+    "cols": [
+      "commute_km"
+    ]
+  }
+}

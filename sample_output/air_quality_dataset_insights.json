@@ -1,0 +1,1501 @@
+{
+ "dataset": {
+  "source": "examples/air_quality_dataset.csv",
+  "rows": 500,
+  "columns": 10,
+  "analyzed_rows": 500,
+  "sampled": false,
+  "target": null
+ },
+ "columns": [
+  {
+   "column": "PM2.5",
+   "role": "measure",
+   "missing_pct": 0.0,
+   "n_unique": 500,
+   "agg": "mean",
+   "min": 10.7575974,
+   "max": 127.6166321,
+   "mean": 54.67161998138,
+   "median": 48.03859887
+  },
+  {
+   "column": "PM10",
+   "role": "measure",
+   "missing_pct": 0.0,
+   "n_unique": 500,
+   "agg": "mean",
+   "min": 12.93233675,
+   "max": 171.5941868,
+   "mean": 84.70325117003999,
+   "median": 78.135557525
+  },
+  {
+   "column": "NOx",
+   "role": "measure",
+   "missing_pct": 0.0,
+   "n_unique": 500,
+   "agg": "mean",
+   "min": -0.076323397,
+   "max": 225.8869352,
+   "mean": 91.81407979681599,
+   "median": 95.452284425
+  },
+  {
+   "column": "NO2",
+   "role": "measure",
+   "missing_pct": 0.0,
+   "n_unique": 500,
+   "agg": "mean",
+   "min": -1.942140413,
+   "max": 115.9164282,
+   "mean": 42.410820359362,
+   "median": 39.21158316
+  },
+  {
+   "column": "SO2",
+   "role": "measure",
+   "missing_pct": 0.0,
+   "n_unique": 500,
+   "agg": "mean",
+   "min": -1.095554625,
+   "max": 31.94185996,
+   "mean": 11.504815794824001,
+   "median": 8.681221754
+  },
+  {
+   "column": "VOCs",
+   "role": "measure",
+   "missing_pct": 0.0,
+   "n_unique": 500,
+   "agg": "mean",
+   "min": 27.55561691,
+   "max": 231.926017,
+   "mean": 112.1930978768,
+   "median": 104.8191238
+  },
+  {
+   "column": "CO",
+   "role": "measure",
+   "missing_pct": 0.0,
+   "n_unique": 500,
+   "agg": "mean",
+   "min": 0.366992172,
+   "max": 4.798934925,
+   "mean": 2.1777048376760004,
+   "median": 2.045518988
+  },
+  {
+   "column": "CO2",
+   "role": "measure",
+   "missing_pct": 0.0,
+   "n_unique": 500,
+   "agg": "mean",
+   "min": 366.0631585,
+   "max": 558.9242565,
+   "mean": 439.28808662200004,
+   "median": 420.93431945
+  },
+  {
+   "column": "CH4",
+   "role": "measure",
+   "missing_pct": 0.0,
+   "n_unique": 500,
+   "agg": "mean",
+   "min": 1.388406649,
+   "max": 3.352265918,
+   "mean": 2.130438698956,
+   "median": 2.066709234
+  },
+  {
+   "column": "Temperature",
+   "role": "measure",
+   "missing_pct": 0.0,
+   "n_unique": 500,
+   "agg": "mean",
+   "min": 19.58134867,
+   "max": 39.77871312,
+   "mean": 30.448413150700002,
+   "median": 30.4327562
+  }
+ ],
+ "top_insights": [
+  "I01",
+  "I06",
+  "I10"
+ ],
+ "insights": [
+  {
+   "type": "correlation",
+   "columns": [
+    "NO2",
+    "CO2"
+   ],
+   "strength": 0.8372800211200845,
+   "impact": 1.0,
+   "p": 1.1436909880063477e-132,
+   "facts": {
+    "rho": "0.84",
+    "pearson": "0.84",
+    "high_group_mean": "502.3",
+    "low_group_mean": "390.8",
+    "high_threshold": "≥ 63.82",
+    "low_threshold": "≤ 17.45"
+   },
+   "text": {
+    "vi": "`NO2` và `CO2` tương quan thuận rất mạnh (Spearman ρ = 0.84): khi `NO2` ≥ 63.82, `CO2` trung bình 502.3, so với 390.8 khi `NO2` ≤ 17.45.",
+    "en": "`NO2` and `CO2` have a very strong positive correlation (Spearman ρ = 0.84): when `NO2` ≥ 63.82, `CO2` averages 502.3 vs. 390.8 when `NO2` ≤ 17.45."
+   },
+   "chart": {
+    "kind": "scatter",
+    "x": "NO2",
+    "y": "CO2"
+   },
+   "score": 0.6698,
+   "theme": "relation",
+   "id": "I01"
+  },
+  {
+   "type": "correlation",
+   "columns": [
+    "NOx",
+    "NO2"
+   ],
+   "strength": 0.8204830259321036,
+   "impact": 1.0,
+   "p": 4.9815357440137855e-123,
+   "facts": {
+    "rho": "0.82",
+    "pearson": "0.81",
+    "high_group_mean": "69.58",
+    "low_group_mean": "15.27",
+    "high_threshold": "≥ 134.7",
+    "low_threshold": "≤ 35.46"
+   },
+   "text": {
+    "vi": "`NOx` và `NO2` tương quan thuận rất mạnh (Spearman ρ = 0.82): khi `NOx` ≥ 134.7, `NO2` trung bình 69.58, so với 15.27 khi `NOx` ≤ 35.46.",
+    "en": "`NOx` and `NO2` have a very strong positive correlation (Spearman ρ = 0.82): when `NOx` ≥ 134.7, `NO2` averages 69.58 vs. 15.27 when `NOx` ≤ 35.46."
+   },
+   "chart": {
+    "kind": "scatter",
+    "x": "NOx",
+    "y": "NO2"
+   },
+   "score": 0.6564,
+   "theme": "relation",
+   "id": "I02"
+  },
+  {
+   "type": "correlation",
+   "columns": [
+    "NOx",
+    "CO2"
+   ],
+   "strength": 0.812448273793095,
+   "impact": 1.0,
+   "p": 9.08135071565084e-119,
+   "facts": {
+    "rho": "0.81",
+    "pearson": "0.80",
+    "high_group_mean": "495.9",
+    "low_group_mean": "390.1",
+    "high_threshold": "≥ 134.7",
+    "low_threshold": "≤ 35.46"
+   },
+   "text": {
+    "vi": "`NOx` và `CO2` tương quan thuận rất mạnh (Spearman ρ = 0.81): khi `NOx` ≥ 134.7, `CO2` trung bình 495.9, so với 390.1 khi `NOx` ≤ 35.46.",
+    "en": "`NOx` and `CO2` have a very strong positive correlation (Spearman ρ = 0.81): when `NOx` ≥ 134.7, `CO2` averages 495.9 vs. 390.1 when `NOx` ≤ 35.46."
+   },
+   "chart": {
+    "kind": "scatter",
+    "x": "NOx",
+    "y": "CO2"
+   },
+   "score": 0.65,
+   "theme": "relation",
+   "id": "I03"
+  },
+  {
+   "type": "correlation",
+   "columns": [
+    "CO",
+    "CO2"
+   ],
+   "strength": 0.7382610010440042,
+   "impact": 1.0,
+   "p": 3.3269621873607917e-87,
+   "facts": {
+    "rho": "0.74",
+    "pearson": "0.74",
+    "high_group_mean": "496.9",
+    "low_group_mean": "396.8",
+    "high_threshold": "≥ 2.73",
+    "low_threshold": "≤ 1.54"
+   },
+   "text": {
+    "vi": "`CO` và `CO2` tương quan thuận mạnh (Spearman ρ = 0.74): khi `CO` ≥ 2.73, `CO2` trung bình 496.9, so với 396.8 khi `CO` ≤ 1.54.",
+    "en": "`CO` and `CO2` have a strong positive correlation (Spearman ρ = 0.74): when `CO` ≥ 2.73, `CO2` averages 496.9 vs. 396.8 when `CO` ≤ 1.54."
+   },
+   "chart": {
+    "kind": "scatter",
+    "x": "CO",
+    "y": "CO2"
+   },
+   "score": 0.5906,
+   "theme": "relation",
+   "id": "I04"
+  },
+  {
+   "type": "correlation",
+   "columns": [
+    "NO2",
+    "CO"
+   ],
+   "strength": 0.7126646106584426,
+   "impact": 1.0,
+   "p": 1.0536194730004591e-78,
+   "facts": {
+    "rho": "0.71",
+    "pearson": "0.69",
+    "high_group_mean": "3.02",
+    "low_group_mean": "1.51",
+    "high_threshold": "≥ 63.82",
+    "low_threshold": "≤ 17.45"
+   },
+   "text": {
+    "vi": "`NO2` và `CO` tương quan thuận mạnh (Spearman ρ = 0.71): khi `NO2` ≥ 63.82, `CO` trung bình 3.02, so với 1.51 khi `NO2` ≤ 17.45.",
+    "en": "`NO2` and `CO` have a strong positive correlation (Spearman ρ = 0.71): when `NO2` ≥ 63.82, `CO` averages 3.02 vs. 1.51 when `NO2` ≤ 17.45."
+   },
+   "chart": {
+    "kind": "scatter",
+    "x": "NO2",
+    "y": "CO"
+   },
+   "score": 0.5701,
+   "theme": "relation",
+   "id": "I05"
+  },
+  {
+   "type": "correlation",
+   "columns": [
+    "PM2.5",
+    "SO2"
+   ],
+   "strength": 0.7102091128364513,
+   "impact": 1.0,
+   "p": 6.154928917647524e-78,
+   "facts": {
+    "rho": "0.71",
+    "pearson": "0.74",
+    "high_group_mean": "19.87",
+    "low_group_mean": "6.53",
+    "high_threshold": "≥ 73.82",
+    "low_threshold": "≤ 36.37"
+   },
+   "text": {
+    "vi": "`PM2.5` và `SO2` tương quan thuận mạnh (Spearman ρ = 0.71): khi `PM2.5` ≥ 73.82, `SO2` trung bình 19.87, so với 6.53 khi `PM2.5` ≤ 36.37.",
+    "en": "`PM2.5` and `SO2` have a strong positive correlation (Spearman ρ = 0.71): when `PM2.5` ≥ 73.82, `SO2` averages 19.87 vs. 6.53 when `PM2.5` ≤ 36.37."
+   },
+   "chart": {
+    "kind": "scatter",
+    "x": "PM2.5",
+    "y": "SO2"
+   },
+   "score": 0.5682,
+   "theme": "relation",
+   "id": "I06"
+  },
+  {
+   "type": "correlation",
+   "columns": [
+    "PM10",
+    "SO2"
+   ],
+   "strength": 0.7012307729230917,
+   "impact": 1.0,
+   "p": 3.349865920186406e-75,
+   "facts": {
+    "rho": "0.70",
+    "pearson": "0.74",
+    "high_group_mean": "20.00",
+    "low_group_mean": "6.62",
+    "high_threshold": "≥ 110.3",
+    "low_threshold": "≤ 61.12"
+   },
+   "text": {
+    "vi": "`PM10` và `SO2` tương quan thuận mạnh (Spearman ρ = 0.70): khi `PM10` ≥ 110.3, `SO2` trung bình 20.00, so với 6.62 khi `PM10` ≤ 61.12.",
+    "en": "`PM10` and `SO2` have a strong positive correlation (Spearman ρ = 0.70): when `PM10` ≥ 110.3, `SO2` averages 20.00 vs. 6.62 when `PM10` ≤ 61.12."
+   },
+   "chart": {
+    "kind": "scatter",
+    "x": "PM10",
+    "y": "SO2"
+   },
+   "score": 0.561,
+   "theme": "relation",
+   "id": "I07"
+  },
+  {
+   "type": "correlation",
+   "columns": [
+    "SO2",
+    "CH4"
+   ],
+   "strength": 0.6797189108756435,
+   "impact": 1.0,
+   "p": 4.797131141178174e-69,
+   "facts": {
+    "rho": "0.68",
+    "pearson": "0.70",
+    "high_group_mean": "2.56",
+    "low_group_mean": "1.87",
+    "high_threshold": "≥ 17.12",
+    "low_threshold": "≤ 5.98"
+   },
+   "text": {
+    "vi": "`SO2` và `CH4` tương quan thuận mạnh (Spearman ρ = 0.68): khi `SO2` ≥ 17.12, `CH4` trung bình 2.56, so với 1.87 khi `SO2` ≤ 5.98.",
+    "en": "`SO2` and `CH4` have a strong positive correlation (Spearman ρ = 0.68): when `SO2` ≥ 17.12, `CH4` averages 2.56 vs. 1.87 when `SO2` ≤ 5.98."
+   },
+   "chart": {
+    "kind": "scatter",
+    "x": "SO2",
+    "y": "CH4"
+   },
+   "score": 0.5438,
+   "theme": "relation",
+   "id": "I08"
+  },
+  {
+   "type": "correlation",
+   "columns": [
+    "SO2",
+    "VOCs"
+   ],
+   "strength": 0.673621734486938,
+   "impact": 1.0,
+   "p": 2.142435061483515e-67,
+   "facts": {
+    "rho": "0.67",
+    "pearson": "0.70",
+    "high_group_mean": "155.0",
+    "low_group_mean": "85.46",
+    "high_threshold": "≥ 17.12",
+    "low_threshold": "≤ 5.98"
+   },
+   "text": {
+    "vi": "`SO2` và `VOCs` tương quan thuận mạnh (Spearman ρ = 0.67): khi `SO2` ≥ 17.12, `VOCs` trung bình 155.0, so với 85.46 khi `SO2` ≤ 5.98.",
+    "en": "`SO2` and `VOCs` have a strong positive correlation (Spearman ρ = 0.67): when `SO2` ≥ 17.12, `VOCs` averages 155.0 vs. 85.46 when `SO2` ≤ 5.98."
+   },
+   "chart": {
+    "kind": "scatter",
+    "x": "SO2",
+    "y": "VOCs"
+   },
+   "score": 0.5389,
+   "theme": "relation",
+   "id": "I09"
+  },
+  {
+   "type": "correlation",
+   "columns": [
+    "NOx",
+    "CO"
+   ],
+   "strength": 0.6697053988215953,
+   "impact": 1.0,
+   "p": 2.3439711665181047e-66,
+   "facts": {
+    "rho": "0.67",
+    "pearson": "0.65",
+    "high_group_mean": "2.86",
+    "low_group_mean": "1.49",
+    "high_threshold": "≥ 134.7",
+    "low_threshold": "≤ 35.46"
+   },
+   "text": {
+    "vi": "`NOx` và `CO` tương quan thuận mạnh (Spearman ρ = 0.67): khi `NOx` ≥ 134.7, `CO` trung bình 2.86, so với 1.49 khi `NOx` ≤ 35.46.",
+    "en": "`NOx` and `CO` have a strong positive correlation (Spearman ρ = 0.67): when `NOx` ≥ 134.7, `CO` averages 2.86 vs. 1.49 when `NOx` ≤ 35.46."
+   },
+   "chart": {
+    "kind": "scatter",
+    "x": "NOx",
+    "y": "CO"
+   },
+   "score": 0.5358,
+   "theme": "relation",
+   "id": "I10"
+  },
+  {
+   "type": "correlation",
+   "columns": [
+    "PM10",
+    "CH4"
+   ],
+   "strength": 0.6537805671222684,
+   "impact": 1.0,
+   "p": 2.72911240803986e-62,
+   "facts": {
+    "rho": "0.65",
+    "pearson": "0.68",
+    "high_group_mean": "2.53",
+    "low_group_mean": "1.88",
+    "high_threshold": "≥ 110.3",
+    "low_threshold": "≤ 61.12"
+   },
+   "text": {
+    "vi": "`PM10` và `CH4` tương quan thuận mạnh (Spearman ρ = 0.65): khi `PM10` ≥ 110.3, `CH4` trung bình 2.53, so với 1.88 khi `PM10` ≤ 61.12.",
+    "en": "`PM10` and `CH4` have a strong positive correlation (Spearman ρ = 0.65): when `PM10` ≥ 110.3, `CH4` averages 2.53 vs. 1.88 when `PM10` ≤ 61.12."
+   },
+   "chart": {
+    "kind": "scatter",
+    "x": "PM10",
+    "y": "CH4"
+   },
+   "score": 0.523,
+   "theme": "relation",
+   "id": "I11"
+  },
+  {
+   "type": "correlation",
+   "columns": [
+    "PM2.5",
+    "CH4"
+   ],
+   "strength": 0.6487259549038196,
+   "impact": 1.0,
+   "p": 4.739128516707328e-61,
+   "facts": {
+    "rho": "0.65",
+    "pearson": "0.66",
+    "high_group_mean": "2.53",
+    "low_group_mean": "1.89",
+    "high_threshold": "≥ 73.82",
+    "low_threshold": "≤ 36.37"
+   },
+   "text": {
+    "vi": "`PM2.5` và `CH4` tương quan thuận mạnh (Spearman ρ = 0.65): khi `PM2.5` ≥ 73.82, `CH4` trung bình 2.53, so với 1.89 khi `PM2.5` ≤ 36.37.",
+    "en": "`PM2.5` and `CH4` have a strong positive correlation (Spearman ρ = 0.65): when `PM2.5` ≥ 73.82, `CH4` averages 2.53 vs. 1.89 when `PM2.5` ≤ 36.37."
+   },
+   "chart": {
+    "kind": "scatter",
+    "x": "PM2.5",
+    "y": "CH4"
+   },
+   "score": 0.519,
+   "theme": "relation",
+   "id": "I12"
+  },
+  {
+   "type": "correlation",
+   "columns": [
+    "PM2.5",
+    "PM10"
+   ],
+   "strength": 0.6322283849135396,
+   "impact": 1.0,
+   "p": 3.650586824854038e-57,
+   "facts": {
+    "rho": "0.63",
+    "pearson": "0.67",
+    "high_group_mean": "116.9",
+    "low_group_mean": "66.20",
+    "high_threshold": "≥ 73.82",
+    "low_threshold": "≤ 36.37"
+   },
+   "text": {
+    "vi": "`PM2.5` và `PM10` tương quan thuận mạnh (Spearman ρ = 0.63): khi `PM2.5` ≥ 73.82, `PM10` trung bình 116.9, so với 66.20 khi `PM2.5` ≤ 36.37.",
+    "en": "`PM2.5` and `PM10` have a strong positive correlation (Spearman ρ = 0.63): when `PM2.5` ≥ 73.82, `PM10` averages 116.9 vs. 66.20 when `PM2.5` ≤ 36.37."
+   },
+   "chart": {
+    "kind": "scatter",
+    "x": "PM2.5",
+    "y": "PM10"
+   },
+   "score": 0.5058,
+   "theme": "relation",
+   "id": "I13"
+  },
+  {
+   "type": "correlation",
+   "columns": [
+    "PM10",
+    "VOCs"
+   ],
+   "strength": 0.6316543026172105,
+   "impact": 1.0,
+   "p": 4.9360934649914375e-57,
+   "facts": {
+    "rho": "0.63",
+    "pearson": "0.64",
+    "high_group_mean": "150.6",
+    "low_group_mean": "86.43",
+    "high_threshold": "≥ 110.3",
+    "low_threshold": "≤ 61.12"
+   },
+   "text": {
+    "vi": "`PM10` và `VOCs` tương quan thuận mạnh (Spearman ρ = 0.63): khi `PM10` ≥ 110.3, `VOCs` trung bình 150.6, so với 86.43 khi `PM10` ≤ 61.12.",
+    "en": "`PM10` and `VOCs` have a strong positive correlation (Spearman ρ = 0.63): when `PM10` ≥ 110.3, `VOCs` averages 150.6 vs. 86.43 when `PM10` ≤ 61.12."
+   },
+   "chart": {
+    "kind": "scatter",
+    "x": "PM10",
+    "y": "VOCs"
+   },
+   "score": 0.5053,
+   "theme": "relation",
+   "id": "I14"
+  },
+  {
+   "type": "correlation",
+   "columns": [
+    "PM2.5",
+    "VOCs"
+   ],
+   "strength": 0.6071725726902908,
+   "impact": 1.0,
+   "p": 1.0817692937801056e-51,
+   "facts": {
+    "rho": "0.61",
+    "pearson": "0.62",
+    "high_group_mean": "151.0",
+    "low_group_mean": "88.99",
+    "high_threshold": "≥ 73.82",
+    "low_threshold": "≤ 36.37"
+   },
+   "text": {
+    "vi": "`PM2.5` và `VOCs` tương quan thuận mạnh (Spearman ρ = 0.61): khi `PM2.5` ≥ 73.82, `VOCs` trung bình 151.0, so với 88.99 khi `PM2.5` ≤ 36.37.",
+    "en": "`PM2.5` and `VOCs` have a strong positive correlation (Spearman ρ = 0.61): when `PM2.5` ≥ 73.82, `VOCs` averages 151.0 vs. 88.99 when `PM2.5` ≤ 36.37."
+   },
+   "chart": {
+    "kind": "scatter",
+    "x": "PM2.5",
+    "y": "VOCs"
+   },
+   "score": 0.4857,
+   "theme": "relation",
+   "id": "I15"
+  },
+  {
+   "type": "correlation",
+   "columns": [
+    "CO2",
+    "Temperature"
+   ],
+   "strength": 0.6045089460357842,
+   "impact": 1.0,
+   "p": 3.8675159230614324e-51,
+   "facts": {
+    "rho": "0.60",
+    "pearson": "0.60",
+    "high_group_mean": "32.93",
+    "low_group_mean": "28.43",
+    "high_threshold": "≥ 491.0",
+    "low_threshold": "≤ 397.4"
+   },
+   "text": {
+    "vi": "`CO2` và `Temperature` tương quan thuận mạnh (Spearman ρ = 0.60): khi `CO2` ≥ 491.0, `Temperature` trung bình 32.93, so với 28.43 khi `CO2` ≤ 397.4.",
+    "en": "`CO2` and `Temperature` have a strong positive correlation (Spearman ρ = 0.60): when `CO2` ≥ 491.0, `Temperature` averages 32.93 vs. 28.43 when `CO2` ≤ 397.4."
+   },
+   "chart": {
+    "kind": "scatter",
+    "x": "CO2",
+    "y": "Temperature"
+   },
+   "score": 0.4836,
+   "theme": "relation",
+   "id": "I16"
+  },
+  {
+   "type": "correlation",
+   "columns": [
+    "VOCs",
+    "CH4"
+   ],
+   "strength": 0.5953809415237661,
+   "impact": 1.0,
+   "p": 2.783029161622172e-49,
+   "facts": {
+    "rho": "0.60",
+    "pearson": "0.61",
+    "high_group_mean": "2.50",
+    "low_group_mean": "1.90",
+    "high_threshold": "≥ 140.6",
+    "low_threshold": "≤ 81.52"
+   },
+   "text": {
+    "vi": "`VOCs` và `CH4` tương quan thuận trung bình (Spearman ρ = 0.60): khi `VOCs` ≥ 140.6, `CH4` trung bình 2.50, so với 1.90 khi `VOCs` ≤ 81.52.",
+    "en": "`VOCs` and `CH4` have a moderate positive correlation (Spearman ρ = 0.60): when `VOCs` ≥ 140.6, `CH4` averages 2.50 vs. 1.90 when `VOCs` ≤ 81.52."
+   },
+   "chart": {
+    "kind": "scatter",
+    "x": "VOCs",
+    "y": "CH4"
+   },
+   "score": 0.4763,
+   "theme": "relation",
+   "id": "I17"
+  },
+  {
+   "type": "correlation",
+   "columns": [
+    "PM2.5",
+    "CO2"
+   ],
+   "strength": 0.5775915903663614,
+   "impact": 1.0,
+   "p": 7.90361702938459e-46,
+   "facts": {
+    "rho": "0.58",
+    "pearson": "0.73",
+    "high_group_mean": "501.2",
+    "low_group_mean": "409.5",
+    "high_threshold": "≥ 73.82",
+    "low_threshold": "≤ 36.37"
+   },
+   "text": {
+    "vi": "`PM2.5` và `CO2` tương quan thuận trung bình (Spearman ρ = 0.58): khi `PM2.5` ≥ 73.82, `CO2` trung bình 501.2, so với 409.5 khi `PM2.5` ≤ 36.37.",
+    "en": "`PM2.5` and `CO2` have a moderate positive correlation (Spearman ρ = 0.58): when `PM2.5` ≥ 73.82, `CO2` averages 501.2 vs. 409.5 when `PM2.5` ≤ 36.37."
+   },
+   "chart": {
+    "kind": "scatter",
+    "x": "PM2.5",
+    "y": "CO2"
+   },
+   "score": 0.4621,
+   "theme": "relation",
+   "id": "I18"
+  },
+  {
+   "type": "correlation",
+   "columns": [
+    "NO2",
+    "Temperature"
+   ],
+   "strength": 0.5680528962115848,
+   "impact": 1.0,
+   "p": 4.612555919990478e-44,
+   "facts": {
+    "rho": "0.57",
+    "pearson": "0.54",
+    "high_group_mean": "32.67",
+    "low_group_mean": "28.72",
+    "high_threshold": "≥ 63.82",
+    "low_threshold": "≤ 17.45"
+   },
+   "text": {
+    "vi": "`NO2` và `Temperature` tương quan thuận trung bình (Spearman ρ = 0.57): khi `NO2` ≥ 63.82, `Temperature` trung bình 32.67, so với 28.72 khi `NO2` ≤ 17.45.",
+    "en": "`NO2` and `Temperature` have a moderate positive correlation (Spearman ρ = 0.57): when `NO2` ≥ 63.82, `Temperature` averages 32.67 vs. 28.72 when `NO2` ≤ 17.45."
+   },
+   "chart": {
+    "kind": "scatter",
+    "x": "NO2",
+    "y": "Temperature"
+   },
+   "score": 0.4544,
+   "theme": "relation",
+   "id": "I19"
+  },
+  {
+   "type": "correlation",
+   "columns": [
+    "NOx",
+    "Temperature"
+   ],
+   "strength": 0.5613025332101328,
+   "impact": 1.0,
+   "p": 7.575959112238061e-43,
+   "facts": {
+    "rho": "0.56",
+    "pearson": "0.54",
+    "high_group_mean": "32.56",
+    "low_group_mean": "28.68",
+    "high_threshold": "≥ 134.7",
+    "low_threshold": "≤ 35.46"
+   },
+   "text": {
+    "vi": "`NOx` và `Temperature` tương quan thuận trung bình (Spearman ρ = 0.56): khi `NOx` ≥ 134.7, `Temperature` trung bình 32.56, so với 28.68 khi `NOx` ≤ 35.46.",
+    "en": "`NOx` and `Temperature` have a moderate positive correlation (Spearman ρ = 0.56): when `NOx` ≥ 134.7, `Temperature` averages 32.56 vs. 28.68 when `NOx` ≤ 35.46."
+   },
+   "chart": {
+    "kind": "scatter",
+    "x": "NOx",
+    "y": "Temperature"
+   },
+   "score": 0.449,
+   "theme": "relation",
+   "id": "I20"
+  },
+  {
+   "type": "correlation",
+   "columns": [
+    "PM10",
+    "CO2"
+   ],
+   "strength": 0.5562798891195564,
+   "impact": 1.0,
+   "p": 5.833168162748427e-42,
+   "facts": {
+    "rho": "0.56",
+    "pearson": "0.71",
+    "high_group_mean": "500.8",
+    "low_group_mean": "410.4",
+    "high_threshold": "≥ 110.3",
+    "low_threshold": "≤ 61.12"
+   },
+   "text": {
+    "vi": "`PM10` và `CO2` tương quan thuận trung bình (Spearman ρ = 0.56): khi `PM10` ≥ 110.3, `CO2` trung bình 500.8, so với 410.4 khi `PM10` ≤ 61.12.",
+    "en": "`PM10` and `CO2` have a moderate positive correlation (Spearman ρ = 0.56): when `PM10` ≥ 110.3, `CO2` averages 500.8 vs. 410.4 when `PM10` ≤ 61.12."
+   },
+   "chart": {
+    "kind": "scatter",
+    "x": "PM10",
+    "y": "CO2"
+   },
+   "score": 0.445,
+   "theme": "relation",
+   "id": "I21"
+  },
+  {
+   "type": "correlation",
+   "columns": [
+    "SO2",
+    "CO2"
+   ],
+   "strength": 0.5373808695234781,
+   "impact": 1.0,
+   "p": 9.331933699334024e-39,
+   "facts": {
+    "rho": "0.54",
+    "pearson": "0.76",
+    "high_group_mean": "502.9",
+    "low_group_mean": "413.2",
+    "high_threshold": "≥ 17.12",
+    "low_threshold": "≤ 5.98"
+   },
+   "text": {
+    "vi": "`SO2` và `CO2` tương quan thuận trung bình (Spearman ρ = 0.54): khi `SO2` ≥ 17.12, `CO2` trung bình 502.9, so với 413.2 khi `SO2` ≤ 5.98.",
+    "en": "`SO2` and `CO2` have a moderate positive correlation (Spearman ρ = 0.54): when `SO2` ≥ 17.12, `CO2` averages 502.9 vs. 413.2 when `SO2` ≤ 5.98."
+   },
+   "chart": {
+    "kind": "scatter",
+    "x": "SO2",
+    "y": "CO2"
+   },
+   "score": 0.4299,
+   "theme": "relation",
+   "id": "I22"
+  },
+  {
+   "type": "correlation",
+   "columns": [
+    "PM10",
+    "NO2"
+   ],
+   "strength": 0.530998763995056,
+   "impact": 1.0,
+   "p": 1.0159849396720484e-37,
+   "facts": {
+    "rho": "0.53",
+    "pearson": "0.61",
+    "high_group_mean": "69.51",
+    "low_group_mean": "30.60",
+    "high_threshold": "≥ 110.3",
+    "low_threshold": "≤ 61.12"
+   },
+   "text": {
+    "vi": "`PM10` và `NO2` tương quan thuận trung bình (Spearman ρ = 0.53): khi `PM10` ≥ 110.3, `NO2` trung bình 69.51, so với 30.60 khi `PM10` ≤ 61.12.",
+    "en": "`PM10` and `NO2` have a moderate positive correlation (Spearman ρ = 0.53): when `PM10` ≥ 110.3, `NO2` averages 69.51 vs. 30.60 when `PM10` ≤ 61.12."
+   },
+   "chart": {
+    "kind": "scatter",
+    "x": "PM10",
+    "y": "NO2"
+   },
+   "score": 0.4248,
+   "theme": "relation",
+   "id": "I23"
+  },
+  {
+   "type": "correlation",
+   "columns": [
+    "PM2.5",
+    "NO2"
+   ],
+   "strength": 0.517002484009936,
+   "impact": 1.0,
+   "p": 1.6037308115908782e-35,
+   "facts": {
+    "rho": "0.52",
+    "pearson": "0.61",
+    "high_group_mean": "70.66",
+    "low_group_mean": "31.69",
+    "high_threshold": "≥ 73.82",
+    "low_threshold": "≤ 36.37"
+   },
+   "text": {
+    "vi": "`PM2.5` và `NO2` tương quan thuận trung bình (Spearman ρ = 0.52): khi `PM2.5` ≥ 73.82, `NO2` trung bình 70.66, so với 31.69 khi `PM2.5` ≤ 36.37.",
+    "en": "`PM2.5` and `NO2` have a moderate positive correlation (Spearman ρ = 0.52): when `PM2.5` ≥ 73.82, `NO2` averages 70.66 vs. 31.69 when `PM2.5` ≤ 36.37."
+   },
+   "chart": {
+    "kind": "scatter",
+    "x": "PM2.5",
+    "y": "NO2"
+   },
+   "score": 0.4136,
+   "theme": "relation",
+   "id": "I24"
+  },
+  {
+   "type": "correlation",
+   "columns": [
+    "PM10",
+    "CO"
+   ],
+   "strength": 0.5139764559058236,
+   "impact": 1.0,
+   "p": 4.646311745642992e-35,
+   "facts": {
+    "rho": "0.51",
+    "pearson": "0.55",
+    "high_group_mean": "2.94",
+    "low_group_mean": "1.81",
+    "high_threshold": "≥ 110.3",
+    "low_threshold": "≤ 61.12"
+   },
+   "text": {
+    "vi": "`PM10` và `CO` tương quan thuận trung bình (Spearman ρ = 0.51): khi `PM10` ≥ 110.3, `CO` trung bình 2.94, so với 1.81 khi `PM10` ≤ 61.12.",
+    "en": "`PM10` and `CO` have a moderate positive correlation (Spearman ρ = 0.51): when `PM10` ≥ 110.3, `CO` averages 2.94 vs. 1.81 when `PM10` ≤ 61.12."
+   },
+   "chart": {
+    "kind": "scatter",
+    "x": "PM10",
+    "y": "CO"
+   },
+   "score": 0.4112,
+   "theme": "relation",
+   "id": "I25"
+  },
+  {
+   "type": "correlation",
+   "columns": [
+    "CO2",
+    "CH4"
+   ],
+   "strength": 0.5104197376789507,
+   "impact": 1.0,
+   "p": 1.6003505002530528e-34,
+   "facts": {
+    "rho": "0.51",
+    "pearson": "0.65",
+    "high_group_mean": "2.53",
+    "low_group_mean": "1.98",
+    "high_threshold": "≥ 491.0",
+    "low_threshold": "≤ 397.4"
+   },
+   "text": {
+    "vi": "`CO2` và `CH4` tương quan thuận trung bình (Spearman ρ = 0.51): khi `CO2` ≥ 491.0, `CH4` trung bình 2.53, so với 1.98 khi `CO2` ≤ 397.4.",
+    "en": "`CO2` and `CH4` have a moderate positive correlation (Spearman ρ = 0.51): when `CO2` ≥ 491.0, `CH4` averages 2.53 vs. 1.98 when `CO2` ≤ 397.4."
+   },
+   "chart": {
+    "kind": "scatter",
+    "x": "CO2",
+    "y": "CH4"
+   },
+   "score": 0.4083,
+   "theme": "relation",
+   "id": "I26"
+  },
+  {
+   "type": "correlation",
+   "columns": [
+    "VOCs",
+    "CO2"
+   ],
+   "strength": 0.5064549218196872,
+   "impact": 1.0,
+   "p": 6.2451469433568e-34,
+   "facts": {
+    "rho": "0.51",
+    "pearson": "0.64",
+    "high_group_mean": "495.5",
+    "low_group_mean": "412.6",
+    "high_threshold": "≥ 140.6",
+    "low_threshold": "≤ 81.52"
+   },
+   "text": {
+    "vi": "`VOCs` và `CO2` tương quan thuận trung bình (Spearman ρ = 0.51): khi `VOCs` ≥ 140.6, `CO2` trung bình 495.5, so với 412.6 khi `VOCs` ≤ 81.52.",
+    "en": "`VOCs` and `CO2` have a moderate positive correlation (Spearman ρ = 0.51): when `VOCs` ≥ 140.6, `CO2` averages 495.5 vs. 412.6 when `VOCs` ≤ 81.52."
+   },
+   "chart": {
+    "kind": "scatter",
+    "x": "VOCs",
+    "y": "CO2"
+   },
+   "score": 0.4052,
+   "theme": "relation",
+   "id": "I27"
+  },
+  {
+   "type": "correlation",
+   "columns": [
+    "NO2",
+    "SO2"
+   ],
+   "strength": 0.501881079524318,
+   "impact": 1.0,
+   "p": 2.9386059170111034e-33,
+   "facts": {
+    "rho": "0.50",
+    "pearson": "0.66",
+    "high_group_mean": "20.39",
+    "low_group_mean": "8.10",
+    "high_threshold": "≥ 63.82",
+    "low_threshold": "≤ 17.45"
+   },
+   "text": {
+    "vi": "`NO2` và `SO2` tương quan thuận trung bình (Spearman ρ = 0.50): khi `NO2` ≥ 63.82, `SO2` trung bình 20.39, so với 8.10 khi `NO2` ≤ 17.45.",
+    "en": "`NO2` and `SO2` have a moderate positive correlation (Spearman ρ = 0.50): when `NO2` ≥ 63.82, `SO2` averages 20.39 vs. 8.10 when `NO2` ≤ 17.45."
+   },
+   "chart": {
+    "kind": "scatter",
+    "x": "NO2",
+    "y": "SO2"
+   },
+   "score": 0.4015,
+   "theme": "relation",
+   "id": "I28"
+  },
+  {
+   "type": "correlation",
+   "columns": [
+    "PM2.5",
+    "CO"
+   ],
+   "strength": 0.5012443089772359,
+   "impact": 1.0,
+   "p": 3.638957814016837e-33,
+   "facts": {
+    "rho": "0.50",
+    "pearson": "0.55",
+    "high_group_mean": "2.96",
+    "low_group_mean": "1.84",
+    "high_threshold": "≥ 73.82",
+    "low_threshold": "≤ 36.37"
+   },
+   "text": {
+    "vi": "`PM2.5` và `CO` tương quan thuận trung bình (Spearman ρ = 0.50): khi `PM2.5` ≥ 73.82, `CO` trung bình 2.96, so với 1.84 khi `PM2.5` ≤ 36.37.",
+    "en": "`PM2.5` and `CO` have a moderate positive correlation (Spearman ρ = 0.50): when `PM2.5` ≥ 73.82, `CO` averages 2.96 vs. 1.84 when `PM2.5` ≤ 36.37."
+   },
+   "chart": {
+    "kind": "scatter",
+    "x": "PM2.5",
+    "y": "CO"
+   },
+   "score": 0.401,
+   "theme": "relation",
+   "id": "I29"
+  },
+  {
+   "type": "correlation",
+   "columns": [
+    "SO2",
+    "CO"
+   ],
+   "strength": 0.4957921591686367,
+   "impact": 1.0,
+   "p": 2.2279900011295878e-32,
+   "facts": {
+    "rho": "0.50",
+    "pearson": "0.61",
+    "high_group_mean": "3.00",
+    "low_group_mean": "1.90",
+    "high_threshold": "≥ 17.12",
+    "low_threshold": "≤ 5.98"
+   },
+   "text": {
+    "vi": "`SO2` và `CO` tương quan thuận trung bình (Spearman ρ = 0.50): khi `SO2` ≥ 17.12, `CO` trung bình 3.00, so với 1.90 khi `SO2` ≤ 5.98.",
+    "en": "`SO2` and `CO` have a moderate positive correlation (Spearman ρ = 0.50): when `SO2` ≥ 17.12, `CO` averages 3.00 vs. 1.90 when `SO2` ≤ 5.98."
+   },
+   "chart": {
+    "kind": "scatter",
+    "x": "SO2",
+    "y": "CO"
+   },
+   "score": 0.3966,
+   "theme": "relation",
+   "id": "I30"
+  },
+  {
+   "type": "correlation",
+   "columns": [
+    "CO",
+    "Temperature"
+   ],
+   "strength": 0.49570201480805914,
+   "impact": 1.0,
+   "p": 2.2951209755124215e-32,
+   "facts": {
+    "rho": "0.50",
+    "pearson": "0.45",
+    "high_group_mean": "32.42",
+    "low_group_mean": "28.86",
+    "high_threshold": "≥ 2.73",
+    "low_threshold": "≤ 1.54"
+   },
+   "text": {
+    "vi": "`CO` và `Temperature` tương quan thuận trung bình (Spearman ρ = 0.50): khi `CO` ≥ 2.73, `Temperature` trung bình 32.42, so với 28.86 khi `CO` ≤ 1.54.",
+    "en": "`CO` and `Temperature` have a moderate positive correlation (Spearman ρ = 0.50): when `CO` ≥ 2.73, `Temperature` averages 32.42 vs. 28.86 when `CO` ≤ 1.54."
+   },
+   "chart": {
+    "kind": "scatter",
+    "x": "CO",
+    "y": "Temperature"
+   },
+   "score": 0.3966,
+   "theme": "relation",
+   "id": "I31"
+  },
+  {
+   "type": "correlation",
+   "columns": [
+    "NO2",
+    "CH4"
+   ],
+   "strength": 0.4872038688154752,
+   "impact": 1.0,
+   "p": 3.623644877497267e-31,
+   "facts": {
+    "rho": "0.49",
+    "pearson": "0.57",
+    "high_group_mean": "2.54",
+    "low_group_mean": "1.97",
+    "high_threshold": "≥ 63.82",
+    "low_threshold": "≤ 17.45"
+   },
+   "text": {
+    "vi": "`NO2` và `CH4` tương quan thuận trung bình (Spearman ρ = 0.49): khi `NO2` ≥ 63.82, `CH4` trung bình 2.54, so với 1.97 khi `NO2` ≤ 17.45.",
+    "en": "`NO2` and `CH4` have a moderate positive correlation (Spearman ρ = 0.49): when `NO2` ≥ 63.82, `CH4` averages 2.54 vs. 1.97 when `NO2` ≤ 17.45."
+   },
+   "chart": {
+    "kind": "scatter",
+    "x": "NO2",
+    "y": "CH4"
+   },
+   "score": 0.3898,
+   "theme": "relation",
+   "id": "I32"
+  },
+  {
+   "type": "correlation",
+   "columns": [
+    "SO2",
+    "Temperature"
+   ],
+   "strength": 0.4816362305449221,
+   "impact": 1.0,
+   "p": 2.1195287066500173e-30,
+   "facts": {
+    "rho": "0.48",
+    "pearson": "0.50",
+    "high_group_mean": "32.89",
+    "low_group_mean": "29.49",
+    "high_threshold": "≥ 17.12",
+    "low_threshold": "≤ 5.98"
+   },
+   "text": {
+    "vi": "`SO2` và `Temperature` tương quan thuận trung bình (Spearman ρ = 0.48): khi `SO2` ≥ 17.12, `Temperature` trung bình 32.89, so với 29.49 khi `SO2` ≤ 5.98.",
+    "en": "`SO2` and `Temperature` have a moderate positive correlation (Spearman ρ = 0.48): when `SO2` ≥ 17.12, `Temperature` averages 32.89 vs. 29.49 when `SO2` ≤ 5.98."
+   },
+   "chart": {
+    "kind": "scatter",
+    "x": "SO2",
+    "y": "Temperature"
+   },
+   "score": 0.3853,
+   "theme": "relation",
+   "id": "I33"
+  },
+  {
+   "type": "correlation",
+   "columns": [
+    "PM10",
+    "NOx"
+   ],
+   "strength": 0.4701648566594266,
+   "impact": 1.0,
+   "p": 7.29526639935657e-29,
+   "facts": {
+    "rho": "0.47",
+    "pearson": "0.51",
+    "high_group_mean": "141.5",
+    "low_group_mean": "73.79",
+    "high_threshold": "≥ 110.3",
+    "low_threshold": "≤ 61.12"
+   },
+   "text": {
+    "vi": "`PM10` và `NOx` tương quan thuận trung bình (Spearman ρ = 0.47): khi `PM10` ≥ 110.3, `NOx` trung bình 141.5, so với 73.79 khi `PM10` ≤ 61.12.",
+    "en": "`PM10` and `NOx` have a moderate positive correlation (Spearman ρ = 0.47): when `PM10` ≥ 110.3, `NOx` averages 141.5 vs. 73.79 when `PM10` ≤ 61.12."
+   },
+   "chart": {
+    "kind": "scatter",
+    "x": "PM10",
+    "y": "NOx"
+   },
+   "score": 0.3761,
+   "theme": "relation",
+   "id": "I34"
+  },
+  {
+   "type": "correlation",
+   "columns": [
+    "PM2.5",
+    "NOx"
+   ],
+   "strength": 0.4698211752847012,
+   "impact": 1.0,
+   "p": 8.09455596822596e-29,
+   "facts": {
+    "rho": "0.47",
+    "pearson": "0.52",
+    "high_group_mean": "142.8",
+    "low_group_mean": "73.22",
+    "high_threshold": "≥ 73.82",
+    "low_threshold": "≤ 36.37"
+   },
+   "text": {
+    "vi": "`PM2.5` và `NOx` tương quan thuận trung bình (Spearman ρ = 0.47): khi `PM2.5` ≥ 73.82, `NOx` trung bình 142.8, so với 73.22 khi `PM2.5` ≤ 36.37.",
+    "en": "`PM2.5` and `NOx` have a moderate positive correlation (Spearman ρ = 0.47): when `PM2.5` ≥ 73.82, `NOx` averages 142.8 vs. 73.22 when `PM2.5` ≤ 36.37."
+   },
+   "chart": {
+    "kind": "scatter",
+    "x": "PM2.5",
+    "y": "NOx"
+   },
+   "score": 0.3759,
+   "theme": "relation",
+   "id": "I35"
+  },
+  {
+   "type": "correlation",
+   "columns": [
+    "PM2.5",
+    "Temperature"
+   ],
+   "strength": 0.446005208020832,
+   "impact": 1.0,
+   "p": 8.232775092036368e-26,
+   "facts": {
+    "rho": "0.45",
+    "pearson": "0.44",
+    "high_group_mean": "32.66",
+    "low_group_mean": "29.59",
+    "high_threshold": "≥ 73.82",
+    "low_threshold": "≤ 36.37"
+   },
+   "text": {
+    "vi": "`PM2.5` và `Temperature` tương quan thuận trung bình (Spearman ρ = 0.45): khi `PM2.5` ≥ 73.82, `Temperature` trung bình 32.66, so với 29.59 khi `PM2.5` ≤ 36.37.",
+    "en": "`PM2.5` and `Temperature` have a moderate positive correlation (Spearman ρ = 0.45): when `PM2.5` ≥ 73.82, `Temperature` averages 32.66 vs. 29.59 when `PM2.5` ≤ 36.37."
+   },
+   "chart": {
+    "kind": "scatter",
+    "x": "PM2.5",
+    "y": "Temperature"
+   },
+   "score": 0.3568,
+   "theme": "relation",
+   "id": "I36"
+  },
+  {
+   "type": "correlation",
+   "columns": [
+    "NOx",
+    "SO2"
+   ],
+   "strength": 0.4450961803847215,
+   "impact": 1.0,
+   "p": 1.060982603266863e-25,
+   "facts": {
+    "rho": "0.45",
+    "pearson": "0.56",
+    "high_group_mean": "18.60",
+    "low_group_mean": "7.99",
+    "high_threshold": "≥ 134.7",
+    "low_threshold": "≤ 35.46"
+   },
+   "text": {
+    "vi": "`NOx` và `SO2` tương quan thuận trung bình (Spearman ρ = 0.45): khi `NOx` ≥ 134.7, `SO2` trung bình 18.60, so với 7.99 khi `NOx` ≤ 35.46.",
+    "en": "`NOx` and `SO2` have a moderate positive correlation (Spearman ρ = 0.45): when `NOx` ≥ 134.7, `SO2` averages 18.60 vs. 7.99 when `NOx` ≤ 35.46."
+   },
+   "chart": {
+    "kind": "scatter",
+    "x": "NOx",
+    "y": "SO2"
+   },
+   "score": 0.3561,
+   "theme": "relation",
+   "id": "I37"
+  },
+  {
+   "type": "correlation",
+   "columns": [
+    "CO",
+    "CH4"
+   ],
+   "strength": 0.44415163260653046,
+   "impact": 1.0,
+   "p": 1.379824649315298e-25,
+   "facts": {
+    "rho": "0.44",
+    "pearson": "0.49",
+    "high_group_mean": "2.46",
+    "low_group_mean": "1.96",
+    "high_threshold": "≥ 2.73",
+    "low_threshold": "≤ 1.54"
+   },
+   "text": {
+    "vi": "`CO` và `CH4` tương quan thuận trung bình (Spearman ρ = 0.44): khi `CO` ≥ 2.73, `CH4` trung bình 2.46, so với 1.96 khi `CO` ≤ 1.54.",
+    "en": "`CO` and `CH4` have a moderate positive correlation (Spearman ρ = 0.44): when `CO` ≥ 2.73, `CH4` averages 2.46 vs. 1.96 when `CO` ≤ 1.54."
+   },
+   "chart": {
+    "kind": "scatter",
+    "x": "CO",
+    "y": "CH4"
+   },
+   "score": 0.3553,
+   "theme": "relation",
+   "id": "I38"
+  },
+  {
+   "type": "correlation",
+   "columns": [
+    "PM10",
+    "Temperature"
+   ],
+   "strength": 0.43075573902295605,
+   "impact": 1.0,
+   "p": 5.2519290443226686e-24,
+   "facts": {
+    "rho": "0.43",
+    "pearson": "0.42",
+    "high_group_mean": "32.61",
+    "low_group_mean": "29.47",
+    "high_threshold": "≥ 110.3",
+    "low_threshold": "≤ 61.12"
+   },
+   "text": {
+    "vi": "`PM10` và `Temperature` tương quan thuận trung bình (Spearman ρ = 0.43): khi `PM10` ≥ 110.3, `Temperature` trung bình 32.61, so với 29.47 khi `PM10` ≤ 61.12.",
+    "en": "`PM10` and `Temperature` have a moderate positive correlation (Spearman ρ = 0.43): when `PM10` ≥ 110.3, `Temperature` averages 32.61 vs. 29.47 when `PM10` ≤ 61.12."
+   },
+   "chart": {
+    "kind": "scatter",
+    "x": "PM10",
+    "y": "Temperature"
+   },
+   "score": 0.3446,
+   "theme": "relation",
+   "id": "I39"
+  },
+  {
+   "type": "correlation",
+   "columns": [
+    "NOx",
+    "VOCs"
+   ],
+   "strength": 0.42929336517346073,
+   "impact": 1.0,
+   "p": 7.738030230142313e-24,
+   "facts": {
+    "rho": "0.43",
+    "pearson": "0.46",
+    "high_group_mean": "147.4",
+    "low_group_mean": "98.29",
+    "high_threshold": "≥ 134.7",
+    "low_threshold": "≤ 35.46"
+   },
+   "text": {
+    "vi": "`NOx` và `VOCs` tương quan thuận trung bình (Spearman ρ = 0.43): khi `NOx` ≥ 134.7, `VOCs` trung bình 147.4, so với 98.29 khi `NOx` ≤ 35.46.",
+    "en": "`NOx` and `VOCs` have a moderate positive correlation (Spearman ρ = 0.43): when `NOx` ≥ 134.7, `VOCs` averages 147.4 vs. 98.29 when `NOx` ≤ 35.46."
+   },
+   "chart": {
+    "kind": "scatter",
+    "x": "NOx",
+    "y": "VOCs"
+   },
+   "score": 0.3434,
+   "theme": "relation",
+   "id": "I40"
+  },
+  {
+   "type": "correlation",
+   "columns": [
+    "CH4",
+    "Temperature"
+   ],
+   "strength": 0.42679293917175665,
+   "impact": 1.0,
+   "p": 1.4945898542183694e-23,
+   "facts": {
+    "rho": "0.43",
+    "pearson": "0.41",
+    "high_group_mean": "32.71",
+    "low_group_mean": "29.57",
+    "high_threshold": "≥ 2.39",
+    "low_threshold": "≤ 1.84"
+   },
+   "text": {
+    "vi": "`CH4` và `Temperature` tương quan thuận trung bình (Spearman ρ = 0.43): khi `CH4` ≥ 2.39, `Temperature` trung bình 32.71, so với 29.57 khi `CH4` ≤ 1.84.",
+    "en": "`CH4` and `Temperature` have a moderate positive correlation (Spearman ρ = 0.43): when `CH4` ≥ 2.39, `Temperature` averages 32.71 vs. 29.57 when `CH4` ≤ 1.84."
+   },
+   "chart": {
+    "kind": "scatter",
+    "x": "CH4",
+    "y": "Temperature"
+   },
+   "score": 0.3414,
+   "theme": "relation",
+   "id": "I41"
+  },
+  {
+   "type": "correlation",
+   "columns": [
+    "NO2",
+    "VOCs"
+   ],
+   "strength": 0.4262409369637478,
+   "impact": 1.0,
+   "p": 1.7270927216240943e-23,
+   "facts": {
+    "rho": "0.43",
+    "pearson": "0.50",
+    "high_group_mean": "149.9",
+    "low_group_mean": "101.4",
+    "high_threshold": "≥ 63.82",
+    "low_threshold": "≤ 17.45"
+   },
+   "text": {
+    "vi": "`NO2` và `VOCs` tương quan thuận trung bình (Spearman ρ = 0.43): khi `NO2` ≥ 63.82, `VOCs` trung bình 149.9, so với 101.4 khi `NO2` ≤ 17.45.",
+    "en": "`NO2` and `VOCs` have a moderate positive correlation (Spearman ρ = 0.43): when `NO2` ≥ 63.82, `VOCs` averages 149.9 vs. 101.4 when `NO2` ≤ 17.45."
+   },
+   "chart": {
+    "kind": "scatter",
+    "x": "NO2",
+    "y": "VOCs"
+   },
+   "score": 0.341,
+   "theme": "relation",
+   "id": "I42"
+  },
+  {
+   "type": "correlation",
+   "columns": [
+    "VOCs",
+    "CO"
+   ],
+   "strength": 0.4222637370549482,
+   "impact": 1.0,
+   "p": 4.856688418066374e-23,
+   "facts": {
+    "rho": "0.42",
+    "pearson": "0.46",
+    "high_group_mean": "2.83",
+    "low_group_mean": "1.90",
+    "high_threshold": "≥ 140.6",
+    "low_threshold": "≤ 81.52"
+   },
+   "text": {
+    "vi": "`VOCs` và `CO` tương quan thuận trung bình (Spearman ρ = 0.42): khi `VOCs` ≥ 140.6, `CO` trung bình 2.83, so với 1.90 khi `VOCs` ≤ 81.52.",
+    "en": "`VOCs` and `CO` have a moderate positive correlation (Spearman ρ = 0.42): when `VOCs` ≥ 140.6, `CO` averages 2.83 vs. 1.90 when `VOCs` ≤ 81.52."
+   },
+   "chart": {
+    "kind": "scatter",
+    "x": "VOCs",
+    "y": "CO"
+   },
+   "score": 0.3378,
+   "theme": "relation",
+   "id": "I43"
+  },
+  {
+   "type": "correlation",
+   "columns": [
+    "NOx",
+    "CH4"
+   ],
+   "strength": 0.4201147684590738,
+   "impact": 1.0,
+   "p": 8.442758143760075e-23,
+   "facts": {
+    "rho": "0.42",
+    "pearson": "0.46",
+    "high_group_mean": "2.45",
+    "low_group_mean": "1.99",
+    "high_threshold": "≥ 134.7",
+    "low_threshold": "≤ 35.46"
+   },
+   "text": {
+    "vi": "`NOx` và `CH4` tương quan thuận trung bình (Spearman ρ = 0.42): khi `NOx` ≥ 134.7, `CH4` trung bình 2.45, so với 1.99 khi `NOx` ≤ 35.46.",
+    "en": "`NOx` and `CH4` have a moderate positive correlation (Spearman ρ = 0.42): when `NOx` ≥ 134.7, `CH4` averages 2.45 vs. 1.99 when `NOx` ≤ 35.46."
+   },
+   "chart": {
+    "kind": "scatter",
+    "x": "NOx",
+    "y": "CH4"
+   },
+   "score": 0.3361,
+   "theme": "relation",
+   "id": "I44"
+  },
+  {
+   "type": "correlation",
+   "columns": [
+    "VOCs",
+    "Temperature"
+   ],
+   "strength": 0.40892928371713483,
+   "impact": 1.0,
+   "p": 1.4088573462622184e-21,
+   "facts": {
+    "rho": "0.41",
+    "pearson": "0.39",
+    "high_group_mean": "32.54",
+    "low_group_mean": "29.67",
+    "high_threshold": "≥ 140.6",
+    "low_threshold": "≤ 81.52"
+   },
+   "text": {
+    "vi": "`VOCs` và `Temperature` tương quan thuận trung bình (Spearman ρ = 0.41): khi `VOCs` ≥ 140.6, `Temperature` trung bình 32.54, so với 29.67 khi `VOCs` ≤ 81.52.",
+    "en": "`VOCs` and `Temperature` have a moderate positive correlation (Spearman ρ = 0.41): when `VOCs` ≥ 140.6, `Temperature` averages 32.54 vs. 29.67 when `VOCs` ≤ 81.52."
+   },
+   "chart": {
+    "kind": "scatter",
+    "x": "VOCs",
+    "y": "Temperature"
+   },
+   "score": 0.3271,
+   "theme": "relation",
+   "id": "I45"
+  }
+ ],
+ "secondary_columns": [],
+ "elapsed_sec": 0.89,
+ "summary": {
+  "headline": "`NO2` và `CO2` tương quan thuận rất mạnh (Spearman ρ = 0.84): khi `NO2` ≥ 63.82, `CO2` trung bình 502.3, so với 390.8 khi `NO2` ≤ 17.45.",
+  "key_takeaways": [
+   {
+    "text": "`PM2.5` và `SO2` tương quan thuận mạnh (Spearman ρ = 0.71): khi `PM2.5` ≥ 73.82, `SO2` trung bình 19.87, so với 6.53 khi `PM2.5` ≤ 36.37.",
+    "evidence": [
+     "I06"
+    ]
+   },
+   {
+    "text": "`NOx` và `CO` tương quan thuận mạnh (Spearman ρ = 0.67): khi `NOx` ≥ 134.7, `CO` trung bình 2.86, so với 1.49 khi `NOx` ≤ 35.46.",
+    "evidence": [
+     "I10"
+    ]
+   }
+  ],
+  "recommendations": [],
+  "caveats": []
+ },
+ "llm": null
+}
